@@ -1,16 +1,19 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImLinkedin } from "react-icons/im";
 import { FaGithub } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname(); // Get the current route
+  const pathname = usePathname(); 
 
-  // Define the links
+
+  const linkedinRef = useRef(null);
+  const githubRef = useRef(null);
+
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -22,10 +25,10 @@ export default function Navbar() {
 
   return (
     <div className="relative z-50 w-full flex justify-center pt-5">
-      {/* Navbar */}
+   
       <nav
         className={`fixed z-50 backdrop-blur-sm bg-white/30 shadow-sm w-[90%] md:w-[80%] ${
-          isMenuOpen ? "rounded-2xl" : "rounded-full" // Dynamic border radius
+          isMenuOpen ? "rounded-2xl" : "rounded-full" 
         } overflow-hidden transition-all duration-300`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -63,10 +66,30 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Right Section (Desktop) */}
-            <div className="hidden md:flex items-center space-x-4">
-              <ImLinkedin className="text-2xl text-slate-200" />
-              <FaGithub className="text-2xl text-slate-200" />
+            <div className="hidden md:flex items-center space-x-4 relative">
+              <motion.div
+                ref={linkedinRef}
+                drag
+                dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+                dragElastic={0.6}
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+                className="cursor-pointer"
+              >
+                <ImLinkedin className="text-3xl text-slate-200" />
+              </motion.div>
+
+              <motion.div
+                ref={githubRef}
+                drag
+                dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+                dragElastic={0.7}
+                whileHover={{ scale: 1.1, rotate: -10 }}
+                whileTap={{ scale: 0.9 }}
+                className="cursor-pointer"
+              >
+                <FaGithub className="text-3xl text-slate-200" />
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -117,8 +140,41 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="mt-4 px-4 flex space-x-4">
-                  <ImLinkedin className="text-2xl text-slate-200" />
-                  <FaGithub className="text-2xl text-slate-200" />
+                  {/* Draggable LinkedIn Icon (Mobile) */}
+                  <motion.div
+                    drag
+                    dragConstraints={{
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                    }}
+                    dragElastic={0.8} // Reduced elasticity for smoother dragging
+                    dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }} // Smoother transition
+                    whileDrag={{ scale: 1.05 }} // Slight scale-up while dragging
+                    whileHover={{ scale: 1.2, rotate: 15 }}
+                    whileTap={{ scale: 0.1 }}
+                    className="cursor-pointer"
+                  >
+                    <ImLinkedin className="text-4xl text-slate-200" />
+                  </motion.div>
+
+                  {/* Draggable GitHub Icon (Mobile) */}
+                  <motion.div
+                    drag
+                    dragConstraints={{
+                      top: -50,
+                      left: -50,
+                      right: 50,
+                      bottom: 50,
+                    }}
+                    dragElastic={0.7}
+                    whileHover={{ scale: 1.2, rotate: -15 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="cursor-pointer"
+                  >
+                    <FaGithub className="text-2xl text-slate-200" />
+                  </motion.div>
                 </div>
               </motion.div>
             )}
