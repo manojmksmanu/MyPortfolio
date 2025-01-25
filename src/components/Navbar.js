@@ -25,10 +25,9 @@ export default function Navbar() {
 
   return (
     <div className="relative z-50 w-full flex justify-center pt-5">
-   
       <nav
         className={`fixed z-50 backdrop-blur-sm bg-white/30 shadow-sm w-[90%] md:w-[80%] ${
-          isMenuOpen ? "rounded-2xl" : "rounded-full" 
+          isMenuOpen ? "rounded-2xl" : "rounded-full"
         } overflow-hidden transition-all duration-300`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -163,17 +162,19 @@ export default function Navbar() {
                   <motion.div
                     drag
                     dragConstraints={{
-                      top: -50,
-                      left: -50,
-                      right: 50,
-                      bottom: 50,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
                     }}
-                    dragElastic={0.7}
-                    whileHover={{ scale: 1.2, rotate: -15 }}
+                    dragElastic={0.8}
+                    dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }} // Smoother transition
+                    whileDrag={{ scale: 1.05 }} // Slight scale-up while dragging
+                    whileHover={{ scale: 1.2, rotate: 15 }}
                     whileTap={{ scale: 0.9 }}
                     className="cursor-pointer"
                   >
-                    <FaGithub className="text-2xl text-slate-200" />
+                    <FaGithub className="text-4xl text-slate-200" />
                   </motion.div>
                 </div>
               </motion.div>
