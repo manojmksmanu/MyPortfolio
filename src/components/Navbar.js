@@ -17,14 +17,13 @@ export default function Navbar() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/work", label: "Work" },
-    { href: "/notebook", label: "Notebook" },
+    { href: "/skills", label: "Skills" },
+    { href: "/porjects", label: "Projects" },
     { href: "/contact", label: "Contact" },
-    { href: "/more", label: "More" },
   ];
 
   return (
-    <div className="relative z-50 w-full flex justify-center pt-5">
+    <div className="fixed  z-50 w-full flex justify-center pt-5">
       <nav
         className={`fixed z-50 backdrop-blur-sm bg-white/30 shadow-sm w-[90%] md:w-[80%] ${
           isMenuOpen ? "rounded-2xl" : "rounded-full"
@@ -34,7 +33,10 @@ export default function Navbar() {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/" className="text-xl font-bold text-gray-100">
+              <Link
+                href="/"
+                className="text-xl font-bold text-gray-100 font-sans"
+              >
                 ManojKumar
               </Link>
             </div>
@@ -45,7 +47,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 text-gray-100 hover:text-blue-100 transition-colors duration-200 ${
+                  className={`relative px-4 py-2 text-gray-100 hover:text-blue-100 transition-colors duration-200 font-sans ${
                     pathname === link.href ? "text-blue-100" : ""
                   }`}
                 >
@@ -129,11 +131,12 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block px-4 py-2 text-gray-800 hover:text-blue-600 transition-colors duration-200 ${
+                    className={`block px-4 py-2 text-gray-800 hover:text-blue-600 transition-colors duration-200 font-sans ${
                       pathname === link.href
                         ? "text-blue-600 font-semibold"
                         : ""
                     }`}
+                    onClick={() => setIsMenuOpen(false)} // Close the menu on link click
                   >
                     {link.label}
                   </Link>
