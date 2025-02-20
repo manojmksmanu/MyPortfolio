@@ -1,7 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Star, Code, Terminal, Workflow } from "lucide-react";
+import {
+  X,
+  ExternalLink,
+  Star,
+  Code,
+  Terminal,
+  Workflow,
+  Sparkles,
+} from "lucide-react";
 
 const SkillsPage = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
@@ -14,77 +22,37 @@ const SkillsPage = () => {
         {
           name: "React.js",
           icon: "⚛️",
-          description:
-            "Building modern web applications with React.js ecosystem",
+          description: "Building modern web apps with React.js",
           experience: "Advanced",
-          projects: "20+ Production Applications",
-          expertise: [
-            "Hooks",
-            "Context",
-            "Redux",
-            "Performance Optimization",
-            "Custom Hooks",
-          ],
+          projects: "20+ Production Apps",
+          expertise: ["Hooks", "Redux", "Optimization", "Custom Hooks"],
           color: "from-blue-400 to-cyan-400",
         },
         {
           name: "Next.js",
           icon: "▲",
-          description:
-            "Server-side rendering and static site generation with Next.js",
+          description: "SSR and SSG with Next.js",
           experience: "Advanced",
-          projects: "15+ Full-Stack Applications",
-          expertise: [
-            "SSR",
-            "SSG",
-            "API Routes",
-            "Dynamic Routing",
-            "Image Optimization",
-          ],
-          color: "from-gray-600 to-gray-800",
+          projects: "15+ Full-Stack Apps",
+          expertise: ["SSR", "SSG", "API Routes", "Dynamic Routing"],
+          color: "from-gray-500 to-gray-700",
         },
         {
           name: "React Native",
           icon: "📱",
-          description:
-            "Cross-platform mobile app development with React Native",
+          description: "Cross-platform mobile apps",
           experience: "Advanced",
-          projects: "10+ Mobile Applications",
-          expertise: [
-            "Navigation",
-            "Native Modules",
-            "Performance",
-            "App Store",
-            "Play Store",
-          ],
+          projects: "10+ Mobile Apps",
+          expertise: ["Navigation", "Performance", "App Store"],
           color: "from-blue-500 to-purple-500",
-        },
-        {
-          name: "React Native Expo",
-          icon: "🔮",
-          description: "Rapid mobile development with Expo ecosystem",
-          experience: "Advanced",
-          projects: "8+ Expo Applications",
-          expertise: [
-            "Expo SDK",
-            "OTA Updates",
-            "Notifications",
-            "Easy Deployment",
-          ],
-          color: "from-purple-400 to-pink-400",
         },
         {
           name: "Tailwind CSS",
           icon: "🎨",
-          description: "Utility-first CSS framework for rapid UI development",
+          description: "Rapid UI development with Tailwind",
           experience: "Advanced",
-          projects: "25+ Styled Applications",
-          expertise: [
-            "Custom Themes",
-            "Responsive Design",
-            "Dark Mode",
-            "Animations",
-          ],
+          projects: "25+ Styled Apps",
+          expertise: ["Themes", "Responsive", "Animations"],
           color: "from-cyan-400 to-teal-400",
         },
       ],
@@ -96,47 +64,38 @@ const SkillsPage = () => {
         {
           name: "Node.js",
           icon: "🟢",
-          description: "Server-side JavaScript runtime environment",
+          description: "Server-side JavaScript runtime",
           experience: "Advanced",
           projects: "15+ Backend Services",
-          expertise: ["Event Loop", "Streams", "Clustering", "Performance"],
+          expertise: ["Event Loop", "Streams", "Clustering"],
           color: "from-green-400 to-emerald-400",
         },
         {
           name: "Express.js",
           icon: "🚂",
-          description: "Web application framework for Node.js",
+          description: "Web framework for Node.js",
           experience: "Advanced",
           projects: "20+ REST APIs",
-          expertise: ["Routing", "Middleware", "Authentication", "API Design"],
+          expertise: ["Routing", "Middleware", "Auth"],
           color: "from-gray-500 to-gray-700",
         },
         {
           name: "MongoDB",
           icon: "🍃",
-          description: "NoSQL database for modern applications",
+          description: "NoSQL database mastery",
           experience: "Advanced",
-          projects: "12+ Database Designs",
-          expertise: ["Schema Design", "Aggregation", "Indexing", "Atlas"],
+          projects: "12+ Databases",
+          expertise: ["Schema", "Aggregation", "Indexing"],
           color: "from-green-500 to-lime-500",
         },
         {
           name: "Firebase",
           icon: "🔥",
-          description: "Google's mobile and web application platform",
+          description: "Google's app platform",
           experience: "Advanced",
           projects: "10+ Firebase Projects",
-          expertise: ["Auth", "Firestore", "Storage", "Cloud Functions"],
+          expertise: ["Auth", "Firestore", "Functions"],
           color: "from-yellow-500 to-orange-500",
-        },
-        {
-          name: "Socket.io",
-          icon: "🔌",
-          description: "Real-time bidirectional event-based communication",
-          experience: "Advanced",
-          projects: "5+ Real-time Applications",
-          expertise: ["WebSockets", "Events", "Rooms", "Scaling"],
-          color: "from-purple-500 to-indigo-500",
         },
       ],
     },
@@ -147,131 +106,135 @@ const SkillsPage = () => {
         {
           name: "TypeScript",
           icon: "📘",
-          description: "Typed superset of JavaScript for safer code",
+          description: "Typed JavaScript for safer code",
           experience: "Advanced",
-          projects: "15+ TypeScript Projects",
-          expertise: ["Types", "Generics", "Decorators", "Project Config"],
+          projects: "15+ TS Projects",
+          expertise: ["Types", "Generics", "Config"],
           color: "from-blue-500 to-blue-700",
         },
         {
           name: "Git & GitHub",
           icon: "🐙",
-          description: "Version control and collaboration platform",
+          description: "Version control & collaboration",
           experience: "Advanced",
-          projects: "100+ Repositories",
-          expertise: ["Branching", "CI/CD", "Actions", "Project Management"],
+          projects: "100+ Repos",
+          expertise: ["Branching", "CI/CD", "Actions"],
           color: "from-gray-600 to-gray-800",
-        },
-        {
-          name: "Postman",
-          icon: "📬",
-          description: "API development and testing tool",
-          experience: "Advanced",
-          projects: "30+ API Collections",
-          expertise: ["Testing", "Automation", "Documentation", "Monitoring"],
-          color: "from-orange-400 to-red-400",
         },
         {
           name: "Figma",
           icon: "🎨",
-          description: "Collaborative interface design tool",
+          description: "Interface design collaboration",
           experience: "Advanced",
           projects: "20+ Design Systems",
-          expertise: [
-            "Components",
-            "Auto-layout",
-            "Prototyping",
-            "Collaboration",
-          ],
+          expertise: ["Components", "Prototyping"],
           color: "from-purple-400 to-pink-400",
-        },
-      ],
-    },
-    {
-      name: "App Distribution",
-      icon: <ExternalLink className="w-6 h-6" />,
-      skills: [
-        {
-          name: "Google Play Console",
-          icon: "🎮",
-          description: "Android app publishing and management",
-          experience: "Advanced",
-          projects: "10+ Published Apps",
-          expertise: ["App Release", "Analytics", "Testing", "Store Listing"],
-          color: "from-green-500 to-emerald-500",
-        },
-        {
-          name: "App Store Connect",
-          icon: "🍎",
-          description: "iOS app publishing and management",
-          experience: "Advanced",
-          projects: "8+ Published Apps",
-          expertise: [
-            "TestFlight",
-            "App Review",
-            "Analytics",
-            "In-App Purchases",
-          ],
-          color: "from-gray-500 to-gray-700",
         },
       ],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br pt-16 md:pt-28 px-4 md:px-6 mb-10">
+    <div className="min-h-screen bg-white text-gray-900 py-16 px-4 relative overflow-hidden pt-32">
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 15 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-purple-300/30 rounded-full"
+            style={{
+              width: Math.random() * 6 + 3,
+              height: Math.random() * 6 + 3,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -40, 0],
+              opacity: [0, 0.6, 0],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 1.5,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Header */}
-      <div className="max-w-6xl mx-auto text-center mb-8 md:mb-16">
+      <div className="max-w-6xl mx-auto text-center mb-12 md:mb-16 relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-5xl font-bold text-white mb-4"
+          transition={{ duration: 0.8, type: "spring" }}
+          className="text-4xl md:text-6xl font-extrabold mb-4 relative"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-            Technical Skills
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-400">
+            My Skills
           </span>
+          <motion.span
+            className="absolute -top-4 -right-4 text-purple-400"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          >
+            <Sparkles size={32} />
+          </motion.span>
         </motion.h1>
+        <p className="text-lg md:text-xl text-gray-600">
+          A showcase of my{" "}
+          <span className="text-purple-500 font-semibold">
+            technical toolkit
+          </span>
+        </p>
       </div>
 
       {/* Categories and Skills */}
-      <div className="max-w-6xl mx-auto space-y-8 md:space-y-16">
+      <div className="max-w-6xl mx-auto space-y-12 md:space-y-16 relative z-10">
         {skillCategories.map((category, categoryIndex) => (
           <motion.div
             key={category.name}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: categoryIndex * 0.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: categoryIndex * 0.1, type: "spring" }}
             className="px-2 md:px-0"
           >
-            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-8">
-              <div className="p-1.5 md:p-2 rounded-lg bg-gray-800/50 text-white">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
+              <motion.div
+                className="p-2 rounded-lg bg-purple-100 text-purple-500"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
                 {category.icon}
-              </div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white">
+              </motion.div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
                 {category.name}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {category.skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`bg-gradient-to-br ${skill.color} p-[1px] rounded-xl cursor-pointer`}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-md hover:shadow-purple-300/30 transition-all cursor-pointer border border-purple-200`}
                   onClick={() => setSelectedSkill(skill)}
                 >
-                  <div className="bg-gray-900 p-4 md:p-6 rounded-xl h-full">
-                    <div className="text-2xl md:text-3xl mb-2 md:mb-3">
-                      {skill.icon}
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">
-                      {skill.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm line-clamp-2">
-                      {skill.description}
-                    </p>
-                  </div>
+                  <motion.div
+                    className="text-3xl md:text-4xl mb-3"
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    {skill.icon}
+                  </motion.div>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                    {skill.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-2">
+                    {skill.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -279,7 +242,7 @@ const SkillsPage = () => {
         ))}
       </div>
 
-      {/* Skill Details Sidebar */}
+      {/* Skill Details Modal */}
       <AnimatePresence>
         {selectedSkill && (
           <>
@@ -288,72 +251,78 @@ const SkillsPage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedSkill(null)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
             />
 
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 20 }}
-              className="fixed right-0 top-0 h-full w-[95%] md:w-[90%] lg:w-1/2 bg-gradient-to-b from-gray-900 to-black p-4 md:p-8 z-50 overflow-y-auto"
+              className="fixed bottom-0 left-0 right-0 h-[90%] md:h-[80%] bg-white/90 backdrop-blur-md p-4 md:p-8 z-50 rounded-t-3xl shadow-lg overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedSkill(null)}
-                className="absolute top-4 md:top-6 right-4 md:right-6 p-2 rounded-full bg-gray-800/50 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-full bg-purple-100 text-purple-500 hover:bg-purple-200 transition-colors"
               >
                 <X size={24} />
               </button>
 
               <div className="mt-12 md:mt-8">
-                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-                  <div className="text-4xl md:text-5xl">
+                <div className="flex items-center gap-4 mb-8">
+                  <motion.div
+                    className="text-5xl md:text-6xl"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
                     {selectedSkill.icon}
-                  </div>
+                  </motion.div>
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
                       {selectedSkill.name}
                     </h2>
-                    <div className="flex items-center gap-2 mt-1 md:mt-2">
-                      <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                      <span className="text-yellow-500">
+                    <div className="flex items-center gap-2 mt-2">
+                      <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                      <span className="text-yellow-500 font-medium">
                         {selectedSkill.experience}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6 md:space-y-8">
+                <div className="space-y-8">
                   <div>
-                    <h3 className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-2 md:mb-3">
+                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
                       About
                     </h3>
-                    <p className="text-white text-base md:text-lg">
+                    <p className="text-gray-700 text-lg">
                       {selectedSkill.description}
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-2 md:mb-3">
+                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
                       Projects
                     </h3>
-                    <p className="text-white text-base md:text-lg">
+                    <p className="text-gray-700 text-lg">
                       {selectedSkill.projects}
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xs md:text-sm uppercase tracking-wider text-gray-400 mb-2 md:mb-3">
+                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
                       Expertise
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-3">
                       {selectedSkill.expertise.map((item) => (
-                        <span
+                        <motion.span
                           key={item}
-                          className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gradient-to-r ${selectedSkill.color} text-white text-xs md:text-sm font-medium`}
+                          className={`px-4 py-2 rounded-full bg-gradient-to-r ${selectedSkill.color} text-white text-sm font-medium`}
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ type: "spring" }}
                         >
                           {item}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>

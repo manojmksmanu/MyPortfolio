@@ -1,7 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Twitter,
+  Sparkles,
+} from "lucide-react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -20,48 +28,82 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to an API)
     console.log("Form Data:", formData);
     alert("Thank you for your message! We'll get back to you soon.");
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black pt-16 md:pt-28 px-4 md:px-6 pb-10">
+    <div className="min-h-screen bg-white text-gray-900 pb-10 pt-32 px-4 relative overflow-hidden">
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 15 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-purple-300/30 rounded-full"
+            style={{
+              width: Math.random() * 6 + 3,
+              height: Math.random() * 6 + 3,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -40, 0],
+              opacity: [0, 0.6, 0],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 1.5,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Header */}
-      <div className="max-w-6xl mx-auto text-center mb-8 md:mb-16">
+      <div className="max-w-6xl mx-auto text-center mb-12 md:mb-16 relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-5xl font-bold text-white mb-4"
+          transition={{ duration: 0.8, type: "spring" }}
+          className="text-4xl md:text-6xl font-extrabold mb-4 relative"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-400">
             Contact Me
           </span>
+          <motion.span
+            className="absolute -top-4 -right-4 text-purple-400"
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          >
+            <Sparkles size={32} />
+          </motion.span>
         </motion.h1>
-        <p className="text-gray-400 text-lg md:text-xl">
-          Let's connect! Feel free to reach out for collaborations, questions,
-          or just to say hi.
+        <p className="text-lg md:text-xl text-gray-600">
+          Let’s <span className="text-purple-500 font-semibold">connect</span>!
+          Reach out for collaborations or just a chat.
         </p>
       </div>
 
       {/* Contact Content */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-10">
         {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-gray-800/50 p-6 md:p-8 rounded-xl"
+          transition={{ delay: 0.2, type: "spring" }}
+          className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-md border border-purple-200"
         >
-          <h2 className="text-2xl font-semibold text-white mb-6">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+            <Mail className="text-purple-500" size={24} />
             Send a Message
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-400"
+                className="block text-sm font-medium text-gray-600"
               >
                 Name
               </label>
@@ -71,14 +113,14 @@ const ContactPage = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-400"
+                className="block text-sm font-medium text-gray-600"
               >
                 Email
               </label>
@@ -88,14 +130,14 @@ const ContactPage = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-400"
+                className="block text-sm font-medium text-gray-600"
               >
                 Message
               </label>
@@ -105,17 +147,19 @@ const ContactPage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows="5"
-                className="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                 required
               ></textarea>
             </div>
             <div>
-              <button
+              <motion.button
                 type="submit"
-                className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-md hover:from-blue-600 hover:to-purple-600 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-md shadow-md hover:shadow-purple-300/30 transition-all"
               >
                 Send Message
-              </button>
+              </motion.button>
             </div>
           </form>
         </motion.div>
@@ -124,70 +168,92 @@ const ContactPage = () => {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-gray-800/50 p-6 md:p-8 rounded-xl"
+          transition={{ delay: 0.4, type: "spring" }}
+          className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-md border border-purple-200"
         >
-          <h2 className="text-2xl font-semibold text-white mb-6">
-            Contact Information
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+            <Phone className="text-purple-500" size={24} />
+            Get in Touch
           </h2>
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gray-700 rounded-full">
-                <Mail className="w-6 h-6 text-blue-400" />
+            <motion.div
+              className="flex items-center gap-4"
+              whileHover={{ x: 10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="p-3 bg-purple-100 rounded-full">
+                <Mail className="w-6 h-6 text-purple-500" />
               </div>
               <div>
-                <p className="text-gray-400">Email</p>
-                <p className="text-white">example@example.com</p>
+                <p className="text-gray-600">Email</p>
+                <p className="text-gray-800 font-medium">example@example.com</p>
               </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gray-700 rounded-full">
-                <Phone className="w-6 h-6 text-green-400" />
-              </div>
-              <div>
-                <p className="text-gray-400">Phone</p>
-                <p className="text-white">+123 456 7890</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gray-700 rounded-full">
-                <MapPin className="w-6 h-6 text-red-400" />
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-4"
+              whileHover={{ x: 10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="p-3 bg-purple-100 rounded-full">
+                <Phone className="w-6 h-6 text-purple-500" />
               </div>
               <div>
-                <p className="text-gray-400">Location</p>
-                <p className="text-white">New York, USA</p>
+                <p className="text-gray-600">Phone</p>
+                <p className="text-gray-800 font-medium">+123 456 7890</p>
               </div>
-            </div>
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-4"
+              whileHover={{ x: 10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="p-3 bg-purple-100 rounded-full">
+                <MapPin className="w-6 h-6 text-purple-500" />
+              </div>
+              <div>
+                <p className="text-gray-600">Location</p>
+                <p className="text-gray-800 font-medium">New York, USA</p>
+              </div>
+            </motion.div>
           </div>
 
           {/* Social Media Links */}
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Follow Me</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+              <Linkedin className="text-purple-500" size={24} />
+              Follow Me
+            </h3>
             <div className="flex items-center gap-4">
-              <a
+              <motion.a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                className="p-3 bg-purple-100 rounded-full hover:bg-purple-200 transition-colors"
               >
-                <Linkedin className="w-6 h-6 text-blue-400" />
-              </a>
-              <a
+                <Linkedin className="w-6 h-6 text-purple-500" />
+              </motion.a>
+              <motion.a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors"
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                className="p-3 bg-purple-100 rounded-full hover:bg-purple-200 transition-colors"
               >
-                <Github className="w-6 h-6 text-white" />
-              </a>
-              <a
+                <Github className="w-6 h-6 text-purple-500" />
+              </motion.a>
+              <motion.a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                className="p-3 bg-purple-100 rounded-full hover:bg-purple-200 transition-colors"
               >
-                <Twitter className="w-6 h-6 text-blue-400" />
-              </a>
+                <Twitter className="w-6 h-6 text-purple-500" />
+              </motion.a>
             </div>
           </div>
         </motion.div>
