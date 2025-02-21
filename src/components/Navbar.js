@@ -254,7 +254,6 @@ import { FaGithub } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState(null);
   const pathname = usePathname();
 
   const links = [
@@ -265,144 +264,92 @@ export default function Navbar() {
     { href: "/contact", label: "Contact", emoji: "📬" },
   ];
 
-  // Enhanced menu animation variants
-  const menuContainerVariants = {
-    hidden: {
-      clipPath: "circle(0% at 95% 5%)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-        when: "afterChildren"
-      }
-    },
-    visible: {
-      clipPath: "circle(150% at 95% 5%)",
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-        when: "beforeChildren",
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const menuItemVariants = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        mass: 0.8
-      }
-    }
-  };
-
-  const socialsVariants = {
-    hidden: { 
-      y: 50,
-      opacity: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        delay: 0.3,
-        mass: 0.8
-      }
-    }
-  };
-
-  // Menu backdrop blur animation
-  const backdropVariants = {
+  // Creative animation variants
+  const menuVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.9
+      scale: 0.5,
+      rotateX: 90,
+      y: -200,
+      transformOrigin: "top center",
     },
     visible: {
       opacity: 1,
       scale: 1,
+      rotateX: 0,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
-    }
+        stiffness: 150,
+        damping: 15,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.5,
+      rotateX: -90,
+      y: -200,
+      transition: { duration: 0.3, when: "afterChildren" },
+    },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, x: -50, rotate: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      rotate: 0,
+      transition: { type: "spring", bounce: 0.4 },
+    },
+    exit: { opacity: 0, x: 50, rotate: 20 },
+  };
+
+  const socialsVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.4, type: "spring", stiffness: 200 },
+    },
+  };
+
+  const backdropVariants = {
+    hidden: { opacity: 0, scale: 1.2 },
+    visible: {
+      opacity: 0.9,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+    exit: { opacity: 0, scale: 1.2, transition: { duration: 0.3 } },
   };
 
   return (
-    <div className="fixed z-50 w-full flex justify-center pt-6">
-      <nav className="relative z-50 backdrop-blur-lg bg-white/30 shadow-xl w-[90%] md:w-[85%] rounded-3xl overflow-hidden border border-purple-200/50">
-        {/* Background animation */}
+    <div className="fixed top-0 left-0 z-50 w-full flex justify-center pt-6">
+      <nav className="relative z-10 backdrop-blur-lg bg-white/30 shadow-xl w-[90%] md:w-[85%] rounded-3xl border border-purple-200/50">
+        {/* Animated Background Glow */}
         <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.2), rgba(255, 255, 255, 0))",
-              "radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), rgba(255, 255, 255, 0))",
-            ],
-          }}
-          transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-        >
-          {links.map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-purple-400/50 rounded-full"
-              animate={{
-                x: [0, Math.random() * 100 - 50],
-                y: [0, Math.random() * 50 - 25],
-                scale: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 3 + i,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-              }}
-              style={{
-                left: `${20 + i * 15}%`,
-                top: "20%",
-              }}
-            />
-          ))}
-        </motion.div>
+          className="absolute inset-0 bg-gradient-to-r from-purple-200/20 via-pink-200/20 to-teal-200/20"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+            {/* Logo with Bounce */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, type: "spring" }}
-              className="flex items-center"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
             >
               <Link href="/">
                 <motion.span
-                  className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-teal-400 tracking-tight"
+                  className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-teal-400 tracking-tight"
                   whileHover={{
                     scale: 1.1,
-                    rotate: [0, 5, -5, 0],
-                    transition: { duration: 0.3 },
+                    rotate: [0, 10, -10, 0],
+                    transition: { duration: 0.4 },
                   }}
                 >
                   ManojKumar
@@ -416,49 +363,34 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onMouseEnter={() => setHoveredLink(link.href)}
-                  onMouseLeave={() => setHoveredLink(null)}
                   className="relative px-3 py-2 group"
                 >
                   <motion.div
-                    className="relative flex items-center gap-2 text-gray-700 font-medium"
-                    whileHover={{
-                      scale: 1.1,
-                      color: "#9333ea",
-                    }}
+                    className="flex items-center gap-2 text-gray-700 font-medium"
+                    whileHover={{ scale: 1.1, color: "#9333ea" }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     <motion.span
-                      animate={{
-                        rotate: hoveredLink === link.href ? [0, 10, -10, 0] : 0,
+                      whileHover={{
+                        rotate: 360,
+                        transition: { duration: 0.5 },
                       }}
-                      transition={{ duration: 0.4 }}
                     >
                       {link.emoji}
                     </motion.span>
                     <span>{link.label}</span>
                   </motion.div>
-                  
-                  {/* Active Indicator */}
                   {pathname === link.href && (
                     <motion.div
                       layoutId="activeTab"
                       className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-100/50 to-pink-100/50"
-                      initial={false}
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      transition={{
+                        type: "spring",
+                        bounce: 0.2,
+                        duration: 0.6,
+                      }}
                     />
                   )}
-                  
-                  {/* Hover Indicator */}
-                  <motion.div
-                    className="absolute inset-0 bg-purple-200/20 rounded-lg"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{
-                      scale: hoveredLink === link.href ? 1 : 0,
-                      opacity: hoveredLink === link.href ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  />
                 </Link>
               ))}
             </div>
@@ -474,7 +406,6 @@ export default function Navbar() {
                   color: "#0077b5",
                   transition: { duration: 0.5 },
                 }}
-                whileTap={{ scale: 0.9 }}
                 className="text-gray-600"
               >
                 <ImLinkedin className="text-2xl" />
@@ -488,7 +419,6 @@ export default function Navbar() {
                   color: "#181717",
                   transition: { duration: 0.5 },
                 }}
-                whileTap={{ scale: 0.9 }}
                 className="text-gray-600"
               >
                 <FaGithub className="text-2xl" />
@@ -498,134 +428,150 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden relative z-50 text-gray-800 p-2 rounded-full"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="md:hidden z-20 p-2 text-gray-800 rounded-full relative overflow-hidden"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <motion.div
-                className="w-6 h-6 flex flex-col justify-around"
-                animate={isMenuOpen ? "open" : "closed"}
-              >
+              <div className="w-6 h-6 flex flex-col justify-around">
                 <motion.span
-                  className="h-0.5 w-6 bg-current rounded-full origin-right"
-                  variants={{
-                    closed: { rotate: 0, x: 0 },
-                    open: { rotate: 45, x: -2 }
-                  }}
+                  className="h-0.5 w-6 bg-current rounded-full"
+                  animate={
+                    isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
+                  }
+                  transition={{ duration: 0.3 }}
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
-                  variants={{
-                    closed: { opacity: 1, x: 0 },
-                    open: { opacity: 0, x: -20 }
-                  }}
+                  animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 />
                 <motion.span
-                  className="h-0.5 w-6 bg-current rounded-full origin-right"
-                  variants={{
-                    closed: { rotate: 0, x: 0 },
-                    open: { rotate: -45, x: -2 }
-                  }}
+                  className="h-0.5 w-6 bg-current rounded-full"
+                  animate={
+                    isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                  }
+                  transition={{ duration: 0.3 }}
                 />
-              </motion.div>
+              </div>
+              {/* Ripple Effect */}
+              <motion.div
+                className="absolute inset-0 bg-purple-300/40 rounded-full"
+                initial={{ scale: 0 }}
+                animate={isMenuOpen ? { scale: 2, opacity: 0 } : { scale: 0 }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.button>
           </div>
-
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <>
-                {/* Backdrop blur */}
-                <motion.div
-                  className="fixed inset-0 bg-white/60 backdrop-blur-xl md:hidden"
-                  variants={backdropVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  onClick={() => setIsMenuOpen(false)}
-                />
-                
-                {/* Menu container */}
-                <motion.div
-                  variants={menuContainerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  className="absolute top-0 right-0 w-full md:hidden bg-white/80 backdrop-blur-lg rounded-b-3xl shadow-2xl overflow-hidden"
-                >
-                  <div className="pt-20 pb-6 px-4">
-                    <div className="space-y-3">
-                      {links.map((link) => (
-                        <motion.div
-                          key={link.href}
-                          variants={menuItemVariants}
-                          className="overflow-hidden"
-                        >
-                          <Link
-                            href={link.href}
-                            className={`flex items-center gap-3 px-4 py-3 text-gray-800 font-medium rounded-xl relative overflow-hidden group ${
-                              pathname === link.href
-                                ? "bg-gradient-to-r from-purple-100 to-pink-100 text-purple-600"
-                                : ""
-                            }`}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            <motion.span
-                              className="relative z-10"
-                              whileHover={{ scale: 1.2, rotate: 360 }}
-                              transition={{ duration: 0.4 }}
-                            >
-                              {link.emoji}
-                            </motion.span>
-                            <span className="relative z-10">{link.label}</span>
-                            
-                            {/* Hover gradient */}
-                            <motion.div
-                              className="absolute inset-0 bg-gradient-to-r from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100"
-                              initial={false}
-                              transition={{ duration: 0.3 }}
-                            />
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Mobile Social Icons */}
-                    <motion.div
-                      variants={socialsVariants}
-                      className="mt-8 flex justify-center space-x-8"
-                    >
-                      <motion.a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        whileHover={{
-                          scale: 1.2,
-                          rotate: [0, 15, -15, 0],
-                          color: "#0077b5",
-                        }}
-                        className="text-gray-600"
-                      >
-                        <ImLinkedin className="text-3xl" />
-                      </motion.a>
-                      <motion.a
-                        href="https://github.com"
-                        target="_blank"
-                        whileHover={{
-                          scale: 1.2,
-                          rotate: [0, -15, 15, 0],
-                          color: "#181717",
-                        }}
-                        className="text-gray-600"
-                      >
-                        <FaGithub className="text-3xl" />
-                      </motion.a>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <>
+              {/* Backdrop with Gradient */}
+              <motion.div
+                key="backdrop"
+                className="fixed inset-0 bg-gradient-to-b from-gray-800/80 to-purple-900/80 md:hidden z-40"
+                variants={backdropVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                onClick={() => setIsMenuOpen(false)}
+              />
+
+              {/* Menu with Creative Flip */}
+              <motion.div
+                key="menu"
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="fixed top-16 left-4 right-4 bg-white/95 backdrop-blur-lg md:hidden z-50 shadow-2xl rounded-2xl border border-purple-200/30 overflow-hidden"
+              >
+                <div className="py-6 px-4">
+                  <div className="space-y-3">
+                    {links.map((link) => (
+                      <motion.div
+                        key={link.href}
+                        variants={menuItemVariants}
+                        className="relative overflow-hidden"
+                      >
+                        <Link
+                          href={link.href}
+                          className={`flex items-center gap-4 px-4 py-3 text-gray-800 font-medium rounded-xl relative group ${
+                            pathname === link.href
+                              ? "bg-gradient-to-r from-purple-100 to-pink-100 text-purple-600"
+                              : ""
+                          }`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <motion.span
+                            className="text-2xl"
+                            whileHover={{
+                              scale: 1.3,
+                              rotate: [0, 15, -15, 0],
+                              transition: { duration: 0.4 },
+                            }}
+                          >
+                            {link.emoji}
+                          </motion.span>
+                          <span className="text-lg">{link.label}</span>
+                          {/* Hover Ripple */}
+                          <motion.div
+                            className="absolute inset-0 bg-purple-200/30"
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileHover={{ scale: 2, opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                          />
+                          {/* Active Sparkle */}
+                          {pathname === link.href && (
+                            <motion.div
+                              className="absolute right-2 top-1/2 w-2 h-2 bg-purple-500 rounded-full"
+                              animate={{
+                                scale: [1, 1.5, 1],
+                                opacity: [1, 0.5, 1],
+                              }}
+                              transition={{ duration: 1, repeat: Infinity }}
+                            />
+                          )}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <motion.div
+                    variants={socialsVariants}
+                    className="mt-6 flex justify-center space-x-8"
+                  >
+                    <motion.a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      whileHover={{
+                        scale: [1, 1.4, 1],
+                        rotate: [0, 15, -15, 0],
+                        color: "#0077b5",
+                      }}
+                      className="text-gray-600"
+                    >
+                      <ImLinkedin className="text-3xl" />
+                    </motion.a>
+                    <motion.a
+                      href="https://github.com"
+                      target="_blank"
+                      whileHover={{
+                        scale: [1, 1.4, 1],
+                        rotate: [0, -15, 15, 0],
+                        color: "#181717",
+                      }}
+                      className="text-gray-600"
+                    >
+                      <FaGithub className="text-3xl" />
+                    </motion.a>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </nav>
     </div>
   );
