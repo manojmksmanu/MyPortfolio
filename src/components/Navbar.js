@@ -22,51 +22,43 @@ export default function Navbar() {
   const menuVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.7,
-      rotateX: 90,
-      y: -150,
-      transformOrigin: "top center",
+      scale: 0.8,
+      y: -100,
     },
     visible: {
       opacity: 1,
       scale: 1,
-      rotateX: 0,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 20,
-        duration: 0.2,
-        when: "beforeChildren",
-        staggerChildren: 0.05,
+        stiffness: 500, // Increased for snappier feel
+        damping: 15, // Reduced for faster settle
+        duration: 0.1, // Faster animation
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.7,
-      rotateX: -90,
-      y: -150,
+      scale: 0.8,
+      y: -100,
       transition: {
-        duration: 0.15,
-        when: "afterChildren",
+        duration: 0.1, // Faster exit
       },
     },
   };
 
   const menuItemVariants = {
-    hidden: { opacity: 0, x: -30, rotate: -15 },
+    hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
       x: 0,
-      rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 400,
-        damping: 25,
-        duration: 0.15,
+        stiffness: 600, // Very snappy
+        damping: 20, // Balanced damping
+        duration: 0.1, // Faster
       },
     },
-    exit: { opacity: 0, x: 30, rotate: 15, transition: { duration: 0.1 } },
+    exit: { opacity: 0, x: 20, transition: { duration: 0.08 } },
   };
 
   const socialsVariants = {
@@ -75,50 +67,47 @@ export default function Navbar() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.2,
+        duration: 0.15, // Slightly faster
         type: "spring",
-        stiffness: 300,
-        delay: 0.2,
+        stiffness: 500,
       },
     },
   };
 
   const backdropVariants = {
-    hidden: { opacity: 0, scale: 1.1 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 0.9,
-      scale: 1,
-      transition: { duration: 0.25, ease: "easeOut" },
+      transition: { duration: 0.15 }, // Faster fade-in
     },
-    exit: { opacity: 0, scale: 1.1, transition: { duration: 0.2 } },
+    exit: { opacity: 0, transition: { duration: 0.1 } }, // Faster fade-out
   };
 
   return (
     <div className="fixed top-0 left-0 z-50 w-full flex justify-center pt-6">
       <nav className="relative z-10 backdrop-blur-lg bg-white/30 shadow-xl w-[90%] md:w-[85%] rounded-3xl border border-purple-200/50">
-        {/* Animated Background Glow */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-purple-200/20 via-pink-200/20 to-teal-200/20"
           animate={{ opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} // Slightly faster glow
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Logo with Bounce */}
             <motion.div
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+                duration: 0.1,
+              }}
             >
               <Link href="/">
                 <motion.span
                   className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-teal-400 tracking-tight"
-                  whileHover={{
-                    scale: 1.1,
-                    rotate: [0, 10, -10, 0],
-                    transition: { duration: 0.3 },
-                  }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                 >
                   ManojKumar
                 </motion.span>
@@ -136,13 +125,14 @@ export default function Navbar() {
                   <motion.div
                     className="flex items-center gap-2 text-gray-700 font-medium"
                     whileHover={{ scale: 1.1, color: "#9333ea" }}
-                    transition={{ type: "spring", stiffness: 400 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      duration: 0.1,
+                    }}
                   >
                     <motion.span
-                      whileHover={{
-                        rotate: 360,
-                        transition: { duration: 0.4 },
-                      }}
+                      whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
                     >
                       {link.emoji}
                     </motion.span>
@@ -154,8 +144,8 @@ export default function Navbar() {
                       className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-100/50 to-pink-100/50"
                       transition={{
                         type: "spring",
-                        bounce: 0.2,
-                        duration: 0.5,
+                        stiffness: 600,
+                        duration: 0.2,
                       }}
                     />
                   )}
@@ -171,9 +161,8 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{
                   scale: 1.3,
-                  rotate: 360,
                   color: "#0077b5",
-                  transition: { duration: 0.4 },
+                  transition: { duration: 0.2 },
                 }}
                 className="text-gray-600 cursor-pointer"
               >
@@ -185,9 +174,8 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{
                   scale: 1.3,
-                  rotate: -360,
                   color: "#181717",
-                  transition: { duration: 0.4 },
+                  transition: { duration: 0.2 },
                 }}
                 className="text-gray-600 cursor-pointer"
               >
@@ -208,19 +196,19 @@ export default function Navbar() {
                   animate={
                     isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }} // Faster hamburger animation
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }}
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={
                     isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }}
                 />
               </div>
               <motion.div
@@ -237,7 +225,6 @@ export default function Navbar() {
         <AnimatePresence>
           {isMenuOpen && (
             <>
-              {/* Backdrop with Gradient */}
               <motion.div
                 key="backdrop"
                 className="fixed inset-0 bg-gradient-to-b from-gray-800/80 to-purple-900/80 md:hidden z-40"
@@ -248,7 +235,6 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               />
 
-              {/* Menu with Creative Flip */}
               <motion.div
                 key="menu"
                 variants={menuVariants}
@@ -260,11 +246,7 @@ export default function Navbar() {
                 <div className="py-6 px-4">
                   <div className="space-y-3">
                     {links.map((link) => (
-                      <motion.div
-                        key={link.href}
-                        variants={menuItemVariants}
-                        className="relative overflow-hidden"
-                      >
+                      <motion.div key={link.href} variants={menuItemVariants}>
                         <Link
                           href={link.href}
                           className={`flex items-center gap-4 px-4 py-3 text-gray-800 font-medium rounded-xl relative group ${
@@ -277,51 +259,36 @@ export default function Navbar() {
                           <motion.span
                             className="text-2xl"
                             whileHover={{
-                              scale: 1.3,
-                              rotate: [0, 10, -10, 0],
-                              transition: { duration: 0.1 },
+                              scale: 1.2,
+                              transition: { duration: 0.15 },
                             }}
                           >
                             {link.emoji}
                           </motion.span>
                           <span className="text-lg">{link.label}</span>
-                          <motion.div
-                            className="absolute inset-0 bg-purple-200/30"
-                            initial={{ scale: 0, opacity: 0 }}
-                            whileHover={{ scale: 2, opacity: 1 }}
-                            transition={{ duration: 0.2 }}
-                          />
                           {pathname === link.href && (
                             <motion.div
                               className="absolute right-2 top-1/2 w-2 h-2 bg-purple-500 rounded-full"
-                              animate={{
-                                scale: [1, 1.5, 1],
-                                opacity: [1, 0.5, 1],
-                              }}
-                              transition={{
-                                duration: 0.8,
-                                repeat: Infinity,
-                              }}
+                              animate={{ scale: [1, 1.5, 1] }}
+                              transition={{ duration: 0.5, repeat: Infinity }}
                             />
                           )}
                         </Link>
                       </motion.div>
                     ))}
                   </div>
-                  {/* Mobile Social Icons */}
                   <motion.div
                     variants={socialsVariants}
-                    className="mt-6 flex justify-center space-x-8 relative z-50" // Increased z-index
+                    className="mt-6 flex justify-center space-x-8 relative z-50"
                   >
                     <motion.a
                       href="https://www.linkedin.com/in/manoj-kumar-05b2b91aa/"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{
-                        scale: [1, 1.4, 1],
-                        rotate: [0, 10, -10, 0],
+                        scale: 1.3,
                         color: "#0077b5",
-                        transition: { duration: 0.2 },
+                        transition: { duration: 0.15 },
                       }}
                       className="text-gray-600 cursor-pointer"
                     >
@@ -332,10 +299,9 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{
-                        scale: [1, 1.4, 1],
-                        rotate: [0, -10, 10, 0],
+                        scale: 1.3,
                         color: "#181717",
-                        transition: { duration: 0.2 },
+                        transition: { duration: 0.15 },
                       }}
                       className="text-gray-600 cursor-pointer"
                     >
