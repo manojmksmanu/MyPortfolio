@@ -264,13 +264,13 @@ export default function Navbar() {
     { href: "/contact", label: "Contact", emoji: "📬" },
   ];
 
-  // Creative animation variants
+  // Faster animation variants
   const menuVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.5,
+      scale: 0.7,
       rotateX: 90,
-      y: -200,
+      y: -150, // Reduced distance for faster travel
       transformOrigin: "top center",
     },
     visible: {
@@ -280,30 +280,39 @@ export default function Navbar() {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 150,
-        damping: 15,
+        stiffness: 300, // Increased stiffness for quicker snap
+        damping: 20, // Slightly higher damping for less bounce
+        duration: 0.2, // Faster base duration
         when: "beforeChildren",
-        staggerChildren: 0.1,
+        staggerChildren: 0.05, // Reduced stagger for quicker item entry
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.5,
+      scale: 0.7,
       rotateX: -90,
-      y: -200,
-      transition: { duration: 0.3, when: "afterChildren" },
+      y: -150,
+      transition: {
+        duration: 0.15, // Faster exit
+        when: "afterChildren",
+      },
     },
   };
 
   const menuItemVariants = {
-    hidden: { opacity: 0, x: -50, rotate: -20 },
+    hidden: { opacity: 0, x: -30, rotate: -15 }, // Reduced distance and rotation
     visible: {
       opacity: 1,
       x: 0,
       rotate: 0,
-      transition: { type: "spring", bounce: 0.4 },
+      transition: {
+        type: "spring",
+        stiffness: 400, // Higher stiffness for faster snap
+        damping: 25, // Controlled bounce
+        duration: 0.15, // Quick entry
+      },
     },
-    exit: { opacity: 0, x: 50, rotate: 20 },
+    exit: { opacity: 0, x: 30, rotate: 15, transition: { duration: 0.1 } }, // Faster exit
   };
 
   const socialsVariants = {
@@ -311,18 +320,23 @@ export default function Navbar() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { delay: 0.4, type: "spring", stiffness: 200 },
+      transition: {
+        duration: 0.2, // Faster pop-in
+        type: "spring",
+        stiffness: 300,
+        delay: 0.2, // Reduced delay
+      },
     },
   };
 
   const backdropVariants = {
-    hidden: { opacity: 0, scale: 1.2 },
+    hidden: { opacity: 0, scale: 1.1 }, // Reduced scale for quicker effect
     visible: {
       opacity: 0.9,
       scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: { duration: 0.25, ease: "easeOut" }, // Faster fade-in
     },
-    exit: { opacity: 0, scale: 1.2, transition: { duration: 0.3 } },
+    exit: { opacity: 0, scale: 1.1, transition: { duration: 0.2 } }, // Faster fade-out
   };
 
   return (
@@ -349,7 +363,7 @@ export default function Navbar() {
                   whileHover={{
                     scale: 1.1,
                     rotate: [0, 10, -10, 0],
-                    transition: { duration: 0.4 },
+                    transition: { duration: 0.3 },
                   }}
                 >
                   ManojKumar
@@ -373,7 +387,7 @@ export default function Navbar() {
                     <motion.span
                       whileHover={{
                         rotate: 360,
-                        transition: { duration: 0.5 },
+                        transition: { duration: 0.4 },
                       }}
                     >
                       {link.emoji}
@@ -387,7 +401,7 @@ export default function Navbar() {
                       transition={{
                         type: "spring",
                         bounce: 0.2,
-                        duration: 0.6,
+                        duration: 0.5,
                       }}
                     />
                   )}
@@ -404,7 +418,7 @@ export default function Navbar() {
                   scale: 1.3,
                   rotate: 360,
                   color: "#0077b5",
-                  transition: { duration: 0.5 },
+                  transition: { duration: 0.4 },
                 }}
                 className="text-gray-600"
               >
@@ -417,7 +431,7 @@ export default function Navbar() {
                   scale: 1.3,
                   rotate: -360,
                   color: "#181717",
-                  transition: { duration: 0.5 },
+                  transition: { duration: 0.4 },
                 }}
                 className="text-gray-600"
               >
@@ -438,19 +452,19 @@ export default function Navbar() {
                   animate={
                     isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2 }} // Faster button animation
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2 }} // Faster fade
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={
                     isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.2 }} // Faster button animation
                 />
               </div>
               {/* Ripple Effect */}
@@ -458,7 +472,7 @@ export default function Navbar() {
                 className="absolute inset-0 bg-purple-300/40 rounded-full"
                 initial={{ scale: 0 }}
                 animate={isMenuOpen ? { scale: 2, opacity: 0 } : { scale: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.1 }} // Faster ripple
               />
             </motion.button>
           </div>
@@ -509,8 +523,8 @@ export default function Navbar() {
                             className="text-2xl"
                             whileHover={{
                               scale: 1.3,
-                              rotate: [0, 15, -15, 0],
-                              transition: { duration: 0.4 },
+                              rotate: [0, 10, -10, 0], // Snappier rotation
+                              transition: { duration: 0.1 }, // Faster hover
                             }}
                           >
                             {link.emoji}
@@ -521,7 +535,7 @@ export default function Navbar() {
                             className="absolute inset-0 bg-purple-200/30"
                             initial={{ scale: 0, opacity: 0 }}
                             whileHover={{ scale: 2, opacity: 1 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.2 }} // Faster ripple
                           />
                           {/* Active Sparkle */}
                           {pathname === link.href && (
@@ -531,7 +545,10 @@ export default function Navbar() {
                                 scale: [1, 1.5, 1],
                                 opacity: [1, 0.5, 1],
                               }}
-                              transition={{ duration: 1, repeat: Infinity }}
+                              transition={{
+                                duration: 0.8, // Slightly faster sparkle
+                                repeat: Infinity,
+                              }}
                             />
                           )}
                         </Link>
@@ -547,8 +564,9 @@ export default function Navbar() {
                       target="_blank"
                       whileHover={{
                         scale: [1, 1.4, 1],
-                        rotate: [0, 15, -15, 0],
+                        rotate: [0, 10, -10, 0], // Snappier rotation
                         color: "#0077b5",
+                        transition: { duration: 0.2 }, // Faster hover
                       }}
                       className="text-gray-600"
                     >
@@ -559,8 +577,9 @@ export default function Navbar() {
                       target="_blank"
                       whileHover={{
                         scale: [1, 1.4, 1],
-                        rotate: [0, -15, 15, 0],
+                        rotate: [0, -10, 10, 0], // Snappier rotation
                         color: "#181717",
+                        transition: { duration: 0.2 }, // Faster hover
                       }}
                       className="text-gray-600"
                     >

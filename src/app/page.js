@@ -40,11 +40,11 @@ const Page = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const phrases = [
-    "Code Sorcerer ✨",
-    "Digital Dreamweaver 🎨",
-    "App Artisan 📱",
-    "Pixel Pioneer ⚡️",
-    "Tech Trailblazer 🌈",
+    "React Native ",
+    "MERN Developer ✨",
+    "App Developer 📱",
+    "Google Play Console",
+    "App Store Connect ",
   ];
 
   // Mouse tracking
@@ -180,7 +180,7 @@ const Page = () => {
           </motion.h1>
 
           {/* Phrase Animation with Gradient */}
-          <div className="h-10 sm:h-12 md:h-14 mb-6 sm:mb-8 md:mb-10">
+          <div className="h-10 sm:h-12 md:h-14 mb-6 sm:mb-8 md:mb-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPhrase}
@@ -226,7 +226,7 @@ const Page = () => {
             whileTap={{ scale: 0.9 }}
           >
             <span className="relative z-10 flex items-center gap-2 sm:gap-3">
-              <Download size={26}  />
+              <Download size={26} />
               Grab My Resume
             </span>
             <motion.div
