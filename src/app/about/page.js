@@ -7,7 +7,7 @@ const ExperienceCard = ({ role, company, duration, description, projects }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% visible
+    viewport={{ once: true, amount: 0.2 }}
     transition={{ type: "spring", stiffness: 80, damping: 20 }}
     className="mb-6 sm:mb-8 group"
   >
@@ -40,7 +40,7 @@ const ExperienceCard = ({ role, company, duration, description, projects }) => (
         {projects && (
           <div className="space-y-2">
             <h4 className="text-purple-500 font-semibold flex items-center gap-2 text-sm sm:text-base">
-              <Code size={20}  /> Key Projects
+              <Code size={20} /> Key Responsibilities & Projects
             </h4>
             <ul className="space-y-1 sm:space-y-2">
               {projects.map((project, idx) => (
@@ -102,8 +102,8 @@ const Page = () => {
   const [activeTab, setActiveTab] = useState("experience");
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 pt-32 py-12  px-4 relative overflow-hidden">
-      {/* Background Particles (reduced count) */}
+    <div className="min-h-screen bg-white text-gray-900 pt-32 py-12 px-4 relative overflow-hidden">
+      {/* Background Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: 10 }).map((_, i) => (
           <motion.div
@@ -142,7 +142,7 @@ const Page = () => {
             animate={{ rotate: [0, 3, -3, 0] }}
             transition={{ duration: 2.5, repeat: Infinity }}
           >
-            About Me
+            About Manoj Kumar
           </motion.span>
           <motion.span
             className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 text-purple-400"
@@ -153,11 +153,11 @@ const Page = () => {
           </motion.span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-2">
-          A passionate{" "}
+          A dedicated{" "}
           <span className="text-purple-500 font-semibold">
-            full-stack developer
+            App and Web Developer
           </span>{" "}
-          crafting digital wonders with code & creativity.
+          from Noida, India, passionate about building full-stack solutions.
         </p>
       </motion.div>
 
@@ -239,36 +239,29 @@ const Page = () => {
           {activeTab === "experience" && (
             <div className="space-y-4 sm:space-y-6">
               <ExperienceCard
-                role="Full Stack Developer"
-                company="CloudTech Solutions"
-                duration="2022 - Present"
-                description="Building scalable cloud solutions and guiding teams to success."
+                role="Mobile App Developer (React Native, MERN)"
+                company="MyMegaminds"
+                duration="Aug 2024 - Feb 2025"
+                description="Developed and published full-stack applications across various domains, focusing on real-time features and performance optimization."
                 projects={[
-                  "Created a Next.js & AWS portal for 100K+ users",
-                  "Added real-time features with Socket.io & Redis",
-                  "Reduced bugs by 40% with automated testing",
-                ]}
-              />
-              <ExperienceCard
-                role="React Native Developer"
-                company="MobileApp Wizards"
-                duration="2020 - 2022"
-                description="Transforming ideas into delightful mobile apps."
-                projects={[
-                  "Built a fitness app with 200K+ downloads",
-                  "Developed a food delivery app with live tracking",
-                  "Enhanced UX with notifications & analytics",
+                  "Built mobile apps with React Native, Expo, and real-time messaging using Socket.io.",
+                  "Developed scalable backend APIs with Node.js, Express, and MongoDB.",
+                  "Implemented push notifications and file sharing in mobile applications.",
+                  "Optimized front-end performance for seamless user interactions.",
+                  "Published apps successfully on App Store and Google Play Store.",
+                  "Designed user-friendly interfaces with third-party integrations.",
                 ]}
               />
               <ExperienceCard
                 role="Web Developer"
-                company="Digital Creations"
-                duration="2019 - 2020"
-                description="Crafting responsive web experiences with style."
+                company="Manma Services"
+                duration="Nov 2023 - May 2024"
+                description="Contributed to responsive and accessible website development, improving user experience and team collaboration."
                 projects={[
-                  "Developed 5+ MERN stack e-commerce sites",
-                  "Integrated payment & inventory systems",
-                  "Created custom WordPress themes & plugins",
+                  "Enhanced website accessibility and responsiveness.",
+                  "Designed intuitive UI in collaboration with cross-functional teams.",
+                  "Optimized website performance, reducing load times significantly.",
+                  "Supported project documentation and version control with Git.",
                 ]}
               />
             </div>
@@ -277,22 +270,10 @@ const Page = () => {
           {activeTab === "education" && (
             <div className="space-y-4 sm:space-y-6">
               <EducationCard
-                degree="B.Tech in Computer Science"
-                institution="University of Technology"
-                year="2015 - 2019"
-                details="Graduated with honors, led coding clubs, and won hackathons."
-              />
-              <EducationCard
-                degree="Advanced Web Development"
-                institution="Digital Skills Institute"
-                year="2020"
-                details="Mastered React, Node.js, and cloud tech in 6 months."
-              />
-              <EducationCard
-                degree="Mobile App Development"
-                institution="App Academy Online"
-                year="2021"
-                details="Specialized in React Native for UX-focused mobile apps."
+                degree="Bachelor of Computer Applications"
+                institution="Glocal University"
+                year="2021 - 2024"
+                details="Completed a comprehensive program focused on computer science and application development, gaining hands-on experience with modern technologies."
               />
             </div>
           )}
