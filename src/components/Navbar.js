@@ -18,69 +18,74 @@ export default function Navbar() {
     { href: "/contact", label: "Contact", emoji: "📬" },
   ];
 
-  // Faster animation variants
+  // Smooth and fast animation variants
   const menuVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-      y: -100,
-    },
+    hidden: { opacity: 0, scale: 0.9, y: -50 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 500, // Increased for snappier feel
-        damping: 15, // Reduced for faster settle
-        duration: 0.1, // Faster animation
+        stiffness: 400,
+        damping: 25,
+        duration: 0.25,
+        ease: "easeOut",
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.8,
-      y: -100,
-      transition: {
-        duration: 0.1, // Faster exit
-      },
+      scale: 0.9,
+      y: -50,
+      transition: { duration: 0.2, ease: "easeIn" },
     },
   };
 
   const menuItemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 600, // Very snappy
-        damping: 20, // Balanced damping
-        duration: 0.1, // Faster
+        stiffness: 300,
+        damping: 20,
+        duration: 0.2,
+        ease: "easeOut",
       },
     },
-    exit: { opacity: 0, x: 20, transition: { duration: 0.08 } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.15, ease: "easeIn" } },
   };
 
   const socialsVariants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.15, // Slightly faster
+        duration: 0.25,
         type: "spring",
-        stiffness: 500,
+        stiffness: 400,
+        damping: 25,
+        ease: "easeOut",
       },
     },
   };
 
   const backdropVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 0.9,
-      transition: { duration: 0.15 }, // Faster fade-in
-    },
-    exit: { opacity: 0, transition: { duration: 0.1 } }, // Faster fade-out
+    visible: { opacity: 0.9, transition: { duration: 0.3, ease: "easeOut" } },
+    exit: { opacity: 0, transition: { duration: 0.2, ease: "easeIn" } },
+  };
+
+  // Gradient animation for ManojKumar
+  const gradientAnimation = {
+    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+    // textShadow: [
+    //   "0 0 5px rgba(147, 51, 234, 0.5)",
+    //   "0 0 15px rgba(147, 51, 234, 0.8)",
+    //   "0 0 5px rgba(147, 51, 234, 0.5)",
+    // ],
   };
 
   return (
@@ -89,7 +94,7 @@ export default function Navbar() {
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-purple-200/20 via-pink-200/20 to-teal-200/20"
           animate={{ opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} // Slightly faster glow
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,14 +105,26 @@ export default function Navbar() {
               transition={{
                 type: "spring",
                 stiffness: 300,
-                damping: 15,
-                duration: 0.1,
+                damping: 20,
+                duration: 0.25,
               }}
             >
               <Link href="/">
                 <motion.span
                   className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-teal-400 tracking-tight"
-                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                  style={{
+                    backgroundSize: "200% 100%", // Allows gradient to move smoothly
+                  }}
+                  animate={gradientAnimation}
+                  transition={{
+                    duration: 3, // Speed of gradient shift
+                    repeat: Infinity,
+                    ease: "linear", // Smooth continuous motion
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.25, ease: "easeOut" },
+                  }}
                 >
                   ManojKumar
                 </motion.span>
@@ -127,12 +144,16 @@ export default function Navbar() {
                     whileHover={{ scale: 1.1, color: "#9333ea" }}
                     transition={{
                       type: "spring",
-                      stiffness: 500,
-                      duration: 0.1,
+                      stiffness: 400,
+                      duration: 0.2,
+                      ease: "easeOut",
                     }}
                   >
                     <motion.span
-                      whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
+                      whileHover={{
+                        scale: 1.2,
+                        transition: { duration: 0.25, ease: "easeOut" },
+                      }}
                     >
                       {link.emoji}
                     </motion.span>
@@ -144,8 +165,9 @@ export default function Navbar() {
                       className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-100/50 to-pink-100/50"
                       transition={{
                         type: "spring",
-                        stiffness: 600,
-                        duration: 0.2,
+                        stiffness: 500,
+                        duration: 0.3,
+                        ease: "easeOut",
                       }}
                     />
                   )}
@@ -162,7 +184,7 @@ export default function Navbar() {
                 whileHover={{
                   scale: 1.3,
                   color: "#0077b5",
-                  transition: { duration: 0.2 },
+                  transition: { duration: 0.25, ease: "easeOut" },
                 }}
                 className="text-gray-600 cursor-pointer"
               >
@@ -175,7 +197,7 @@ export default function Navbar() {
                 whileHover={{
                   scale: 1.3,
                   color: "#181717",
-                  transition: { duration: 0.2 },
+                  transition: { duration: 0.25, ease: "easeOut" },
                 }}
                 className="text-gray-600 cursor-pointer"
               >
@@ -196,26 +218,26 @@ export default function Navbar() {
                   animate={
                     isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.15 }} // Faster hamburger animation
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                 />
                 <motion.span
                   className="h-0.5 w-6 bg-current rounded-full"
                   animate={
                     isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
                   }
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
                 />
               </div>
               <motion.div
                 className="absolute inset-0 bg-purple-300/40 rounded-full"
                 initial={{ scale: 0 }}
                 animate={isMenuOpen ? { scale: 2, opacity: 0 } : { scale: 0 }}
-                transition={{ duration: 0.1 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               />
             </motion.button>
           </div>
@@ -260,7 +282,7 @@ export default function Navbar() {
                             className="text-2xl"
                             whileHover={{
                               scale: 1.2,
-                              transition: { duration: 0.15 },
+                              transition: { duration: 0.25, ease: "easeOut" },
                             }}
                           >
                             {link.emoji}
@@ -270,7 +292,11 @@ export default function Navbar() {
                             <motion.div
                               className="absolute right-2 top-1/2 w-2 h-2 bg-purple-500 rounded-full"
                               animate={{ scale: [1, 1.5, 1] }}
-                              transition={{ duration: 0.5, repeat: Infinity }}
+                              transition={{
+                                duration: 0.6,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
                             />
                           )}
                         </Link>
@@ -288,7 +314,7 @@ export default function Navbar() {
                       whileHover={{
                         scale: 1.3,
                         color: "#0077b5",
-                        transition: { duration: 0.15 },
+                        transition: { duration: 0.25, ease: "easeOut" },
                       }}
                       className="text-gray-600 cursor-pointer"
                     >
@@ -301,7 +327,7 @@ export default function Navbar() {
                       whileHover={{
                         scale: 1.3,
                         color: "#181717",
-                        transition: { duration: 0.15 },
+                        transition: { duration: 0.25, ease: "easeOut" },
                       }}
                       className="text-gray-600 cursor-pointer"
                     >
