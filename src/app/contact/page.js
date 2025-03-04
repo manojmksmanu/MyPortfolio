@@ -186,7 +186,9 @@ const ContactPage = () => {
               </div>
               <div>
                 <p className="text-gray-600">Email</p>
-                <p className="text-gray-800 font-medium">example@example.com</p>
+                <p className="text-gray-800 font-medium">
+                  manoj2022019@gmail.com
+                </p>
               </div>
             </motion.div>
             <motion.div
@@ -199,7 +201,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <p className="text-gray-600">Phone</p>
-                <p className="text-gray-800 font-medium">+123 456 7890</p>
+                <p className="text-gray-800 font-medium">+91 9667328778</p>
               </div>
             </motion.div>
             <motion.div
@@ -212,7 +214,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <p className="text-gray-600">Location</p>
-                <p className="text-gray-800 font-medium">New York, USA</p>
+                <p className="text-gray-800 font-medium">Noida, UP, India</p>
               </div>
             </motion.div>
           </div>
@@ -220,12 +222,11 @@ const ContactPage = () => {
           {/* Social Media Links */}
           <div className="mt-8">
             <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-              <Linkedin className="text-purple-500" size={24} />
               Follow Me
             </h3>
             <div className="flex items-center gap-4">
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/manoj-kumar-05b2b91aa"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: 10 }}
@@ -235,7 +236,7 @@ const ContactPage = () => {
                 <Linkedin className="w-6 h-6 text-purple-500" />
               </motion.a>
               <motion.a
-                href="https://github.com"
+                href="https://github.com/manojmksmanu"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: -10 }}
@@ -244,7 +245,7 @@ const ContactPage = () => {
               >
                 <Github className="w-6 h-6 text-purple-500" />
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -253,7 +254,7 @@ const ContactPage = () => {
                 className="p-3 bg-purple-100 rounded-full hover:bg-purple-200 transition-colors"
               >
                 <Twitter className="w-6 h-6 text-purple-500" />
-              </motion.a>
+              </motion.a> */}
             </div>
           </div>
         </motion.div>
