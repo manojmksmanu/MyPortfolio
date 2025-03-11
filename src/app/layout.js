@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
         style={{
-          backgroundImage: "url('/images/topgradientbg.png')",
+          backgroundImage: "url('/Images/topgradientbg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
