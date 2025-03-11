@@ -77,7 +77,7 @@ const Page = () => {
 
   const handleDownloadResume = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "/path/to/resume.pdf";
+    link.href = "/Resume.pdf";
     link.download = "Manoj_Kumar_Resume.pdf";
     link.click();
     link.remove();
