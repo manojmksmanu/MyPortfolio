@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
         style={{
           backgroundImage: "url('/images/topgradientbg.png')",
           backgroundSize: "cover",
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         }}
       >
         <Navbar />
-        <div className=" ">{children}</div>
+        <div className="custom-scrollbar ">{children}</div>
       </body>
     </html>
   );

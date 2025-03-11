@@ -15,16 +15,16 @@ const SkillsPage = () => {
           name: "React Native",
           icon: "📱",
           description:
-            "React Native is a framework that extends React's capabilities to mobile development, allowing developers to build native iOS and Android applications using JavaScript and a single codebase, significantly reducing development time and effort.",
+            "React Native extends React to mobile, enabling native iOS and Android apps with JavaScript and a single codebase.",
           history:
-            "Released by Facebook in 2015, React Native gained rapid adoption for its ability to deliver native-like performance while maintaining a familiar React syntax.",
+            "Released by Facebook in 2015, it’s widely adopted for its native performance and React syntax.",
           usage:
-            "Used for developing cross-platform mobile applications, including productivity tools, social apps, and games, with deployment to both App Store and Google Play.",
+            "Used for cross-platform mobile apps, deployed to App Store and Google Play.",
           keyFeatures: [
-            "Native Components: Renders true native UI elements for each platform.",
-            "Hot Reloading: Speeds up development with real-time code updates.",
-            "Cross-platform: Write once, run on both iOS and Android with minimal adjustments.",
-            "JavaScript Bridge: Enables communication between JS and native code for performance.",
+            "Native Components",
+            "Hot Reloading",
+            "Cross-platform",
+            "JavaScript Bridge",
           ],
           experience: "Advanced",
           color: "from-blue-500 to-purple-500",
@@ -33,16 +33,16 @@ const SkillsPage = () => {
           name: "React.js",
           icon: "⚛️",
           description:
-            "React.js is a powerful JavaScript library designed for building dynamic and interactive user interfaces, particularly for single-page applications where performance and reusability are key. It leverages a component-based architecture to create modular, maintainable, and scalable frontends.",
+            "React.js is a JavaScript library for building dynamic, component-based UIs, ideal for SPAs.",
           history:
-            "Developed by Facebook in 2011 and open-sourced in 2013, React revolutionized frontend development with its virtual DOM and declarative syntax, quickly becoming a favorite among developers for its efficiency and flexibility.",
+            "Developed by Facebook in 2011, open-sourced in 2013, it introduced the virtual DOM.",
           usage:
-            "Widely used for creating responsive web applications, single-page apps (SPAs), and complex UIs requiring frequent updates, such as dashboards and social media platforms.",
+            "Used for responsive web apps and complex UIs like dashboards.",
           keyFeatures: [
-            "Component-based Architecture: Enables reusable and encapsulated UI elements.",
-            "Virtual DOM: Optimizes rendering by minimizing direct DOM manipulations.",
-            "Hooks: Simplifies state and lifecycle management in functional components.",
-            "Unidirectional Data Flow: Ensures predictable state updates and easier debugging.",
+            "Component-based",
+            "Virtual DOM",
+            "Hooks",
+            "Unidirectional Data Flow",
           ],
           experience: "Advanced",
           color: "from-blue-400 to-cyan-400",
@@ -51,35 +51,28 @@ const SkillsPage = () => {
           name: "Next.js",
           icon: "▲",
           description:
-            "Next.js is a robust React framework built on top of Node.js, designed to simplify the development of modern web applications by providing out-of-the-box support for server-side rendering (SSR), static site generation (SSG), and full-stack capabilities. It enhances React with powerful features for production-ready apps.",
+            "Next.js enhances React with SSR, SSG, and full-stack features for modern web apps.",
           history:
-            "Introduced by Vercel in 2016, Next.js has grown from a simple SSR tool into a comprehensive framework, widely adopted for its seamless developer experience and performance optimizations.",
+            "Introduced by Vercel in 2016, it’s now a comprehensive framework.",
           usage:
-            "Used for building SEO-optimized web applications, static websites, e-commerce platforms, and full-stack solutions with integrated API routes and serverless functions.",
-          keyFeatures: [
-            "Server-Side Rendering (SSR): Pre-renders pages on the server for better SEO and faster initial loads.",
-            "Static Site Generation (SSG): Generates static HTML at build time for blazing-fast performance.",
-            "API Routes: Allows building backend endpoints within the same project.",
-            "File-system Routing: Automatically creates routes based on file structure, reducing setup time.",
-          ],
+            "Used for SEO-optimized apps, static sites, and full-stack solutions.",
+          keyFeatures: ["SSR", "SSG", "API Routes", "File-system Routing"],
           experience: "Advanced",
           color: "from-gray-500 to-gray-700",
         },
-
         {
           name: "Tailwind CSS",
           icon: "🎨",
           description:
-            "Tailwind CSS is a utility-first CSS framework that empowers developers to create custom, responsive designs directly in their markup, eliminating the need for extensive custom CSS and accelerating the styling process for modern web applications.",
+            "Tailwind CSS is a utility-first framework for rapid, responsive design in markup.",
           history:
-            "Created by Adam Wathan in 2017, Tailwind gained popularity for its innovative approach to styling, offering a balance between flexibility and consistency.",
-          usage:
-            "Used for rapidly prototyping and styling web applications, dashboards, and marketing sites with a focus on responsiveness and design consistency.",
+            "Created by Adam Wathan in 2017, it’s popular for its flexibility.",
+          usage: "Used for prototyping and styling web apps with consistency.",
           keyFeatures: [
-            "Utility Classes: Provides low-level utilities for direct styling in HTML.",
-            "Responsive Design: Built-in breakpoints for mobile-first development.",
-            "Customization: Highly configurable via a single config file for branding.",
-            "PurgeCSS Integration: Removes unused styles for optimized production builds.",
+            "Utility Classes",
+            "Responsive Design",
+            "Customization",
+            "PurgeCSS",
           ],
           experience: "Advanced",
           color: "from-cyan-400 to-teal-400",
@@ -94,16 +87,14 @@ const SkillsPage = () => {
           name: "Redux",
           icon: "🔄",
           description:
-            "Redux is a predictable state management library for JavaScript applications, designed to centralize application state and make data flow predictable, especially in large-scale React projects. It includes powerful tools like Redux Toolkit and Redux Saga for enhanced functionality.",
-          history:
-            "Introduced by Dan Abramov in 2015, Redux became a standard for React apps, with Redux Toolkit and Redux Saga later simplifying and extending its capabilities.",
-          usage:
-            "Used for managing global state in complex React applications like e-commerce platforms, real-time dashboards, and multi-user systems requiring consistent data flow.",
+            "Redux centralizes state in JavaScript apps, enhanced by Redux Toolkit and Saga.",
+          history: "Introduced by Dan Abramov in 2015, it’s a React standard.",
+          usage: "Used for global state in complex React apps.",
           keyFeatures: [
-            "Centralized State: Stores all app data in a single source of truth.",
-            "Redux Toolkit: Simplifies setup with pre-built utilities and reduces boilerplate.",
-            "Redux Saga: Handles complex async operations and side effects with generator functions.",
-            "Time Travel Debugging: Enables state tracing and rollback for easier debugging.",
+            "Centralized State",
+            "Redux Toolkit",
+            "Redux Saga",
+            "Time Travel Debugging",
           ],
           experience: "Advanced",
           color: "from-purple-600 to-indigo-600",
@@ -112,16 +103,14 @@ const SkillsPage = () => {
           name: "Zustand",
           icon: "🗃️",
           description:
-            "Zustand is a lightweight state management library for React that provides a simple API for managing global state without the complexity of Redux, focusing on minimalism and performance.",
-          history:
-            "Created by Paul Henschel and Daishi Kato in 2019, Zustand emerged as a modern alternative for developers seeking simplicity in state management.",
-          usage:
-            "Used for managing state in small to medium React applications, such as forms, UI toggles, and lightweight data stores.",
+            "Zustand is a lightweight state management library for React.",
+          history: "Created in 2019 by Paul Henschel and Daishi Kato.",
+          usage: "Used for simple state in small to medium React apps.",
           keyFeatures: [
-            "Minimal API: Simple store creation with hooks-based access.",
-            "No Boilerplate: Eliminates complex reducers and actions.",
-            "Immutable Updates: Built-in support for functional state updates.",
-            "Small Footprint: Lightweight bundle size for faster apps.",
+            "Minimal API",
+            "No Boilerplate",
+            "Immutable Updates",
+            "Small Footprint",
           ],
           experience: "Advanced",
           color: "from-orange-400 to-red-400",
@@ -129,17 +118,14 @@ const SkillsPage = () => {
         {
           name: "useReducer + Context API",
           icon: "🔗",
-          description:
-            "A combination of React’s useReducer hook and Context API, offering a built-in solution for managing complex state and sharing it across components without external dependencies, suitable for medium-sized applications.",
-          history:
-            "Introduced with React 16.8 in 2019 (Hooks), this approach leverages native React features as an alternative to libraries like Redux.",
-          usage:
-            "Used for state management in React apps requiring shared state across components, such as user settings, themes, or form data.",
+          description: "A native React solution for complex state management.",
+          history: "Introduced with React 16.8 Hooks in 2019.",
+          usage: "Used for shared state in medium-sized React apps.",
           keyFeatures: [
-            "useReducer: Manages state with reducer functions similar to Redux.",
-            "Context API: Shares state globally without prop drilling.",
-            "No External Deps: Built into React, reducing bundle size.",
-            "Flexible Dispatch: Allows complex state logic with actions.",
+            "useReducer",
+            "Context API",
+            "No External Deps",
+            "Flexible Dispatch",
           ],
           experience: "Advanced",
           color: "from-teal-400 to-green-400",
@@ -154,16 +140,14 @@ const SkillsPage = () => {
           name: "Node.js",
           icon: "🟢",
           description:
-            "Node.js is a JavaScript runtime built on Chrome’s V8 engine, enabling developers to execute JavaScript on the server side. It’s renowned for its non-blocking, event-driven architecture, making it ideal for scalable network applications and backend services.",
-          history:
-            "Created by Ryan Dahl in 2009, Node.js transformed backend development by bringing JavaScript to the server, gaining massive adoption for its performance and ecosystem.",
-          usage:
-            "Used for developing server-side applications, RESTful APIs, microservices, and real-time systems like chat applications and live notifications.",
+            "Node.js is a JavaScript runtime for scalable server-side apps.",
+          history: "Created by Ryan Dahl in 2009, it brought JS to the server.",
+          usage: "Used for REST APIs, microservices, and real-time systems.",
           keyFeatures: [
-            "Asynchronous I/O: Handles multiple requests without blocking the thread.",
-            "Event-driven: Uses an event loop for efficient request processing.",
-            "Single-threaded: Lightweight model for high concurrency.",
-            "NPM Ecosystem: Access to a vast library of packages for rapid development.",
+            "Asynchronous I/O",
+            "Event-driven",
+            "Single-threaded",
+            "NPM Ecosystem",
           ],
           experience: "Advanced",
           color: "from-green-400 to-emerald-400",
@@ -171,17 +155,14 @@ const SkillsPage = () => {
         {
           name: "Express.js",
           icon: "🚂",
-          description:
-            "Express.js is a fast, minimalist web framework for Node.js, providing a robust set of features to build web applications and APIs with ease, serving as the backbone for many Node-based projects.",
-          history:
-            "Released in 2010 by TJ Holowaychuk, Express became the standard server framework for Node.js, known for its simplicity and extensibility.",
-          usage:
-            "Used for creating RESTful APIs, web servers, and middleware-driven applications, often in conjunction with databases and frontend frameworks.",
+          description: "Express.js is a minimalist web framework for Node.js.",
+          history: "Released in 2010 by TJ Holowaychuk.",
+          usage: "Used for REST APIs and middleware-driven apps.",
           keyFeatures: [
-            "Routing: Simplified URL handling and request mapping.",
-            "Middleware: Flexible request processing pipeline.",
-            "HTTP Utilities: Easy management of requests and responses.",
-            "Template Engines: Support for dynamic HTML rendering.",
+            "Routing",
+            "Middleware",
+            "HTTP Utilities",
+            "Template Engines",
           ],
           experience: "Advanced",
           color: "from-gray-500 to-gray-700",
@@ -190,16 +171,14 @@ const SkillsPage = () => {
           name: "MongoDB",
           icon: "🍃",
           description:
-            "MongoDB is a leading NoSQL database that stores data in flexible, JSON-like documents, designed for scalability and adaptability in handling unstructured or semi-structured data for modern applications.",
-          history:
-            "Developed by 10gen in 2007 and open-sourced in 2009, MongoDB became a go-to choice for developers needing a schema-less database solution.",
-          usage:
-            "Used for managing data in web applications, content management systems, real-time analytics, and big data projects.",
+            "MongoDB is a NoSQL database for flexible, scalable data storage.",
+          history: "Developed by 10gen in 2007, open-sourced in 2009.",
+          usage: "Used for web apps, CMS, and real-time analytics.",
           keyFeatures: [
-            "Document-oriented: Stores data in BSON format for flexibility.",
-            "Horizontal Scaling: Supports sharding for large datasets.",
-            "Aggregation Pipeline: Powerful queries for data transformation.",
-            "Indexes: Improves query performance on large collections.",
+            "Document-oriented",
+            "Horizontal Scaling",
+            "Aggregation",
+            "Indexes",
           ],
           experience: "Advanced",
           color: "from-green-500 to-lime-500",
@@ -208,16 +187,15 @@ const SkillsPage = () => {
           name: "Firebase",
           icon: "🔥",
           description:
-            "Firebase is Google’s comprehensive app development platform, offering a suite of tools for building, managing, and scaling web and mobile applications with real-time capabilities and serverless architecture.",
-          history:
-            "Launched in 2011 by Firebase Inc., acquired by Google in 2014, it expanded into a full-fledged platform with real-time database and cloud functions.",
+            "Firebase is Google’s platform for app development with real-time features.",
+          history: "Launched in 2011, acquired by Google in 2014.",
           usage:
-            "Used for rapid app development, including authentication, real-time data syncing, hosting, and serverless backend logic.",
+            "Used for authentication, real-time data, and serverless apps.",
           keyFeatures: [
-            "Realtime Database: Syncs data across clients instantly.",
-            "Cloud Firestore: Scalable NoSQL database with offline support.",
-            "Authentication: Simplifies user login with multiple providers.",
-            "Cloud Functions: Serverless backend logic triggered by events.",
+            "Realtime DB",
+            "Cloud Firestore",
+            "Auth",
+            "Cloud Functions",
           ],
           experience: "Advanced",
           color: "from-yellow-500 to-orange-500",
@@ -232,16 +210,14 @@ const SkillsPage = () => {
           name: "TypeScript",
           icon: "📘",
           description:
-            "TypeScript is a statically typed superset of JavaScript that adds optional types, enhancing code reliability and maintainability, especially in large-scale applications, by catching errors at compile time.",
-          history:
-            "Developed by Microsoft in 2012, TypeScript gained traction for bringing type safety to JavaScript, now widely used in enterprise projects.",
-          usage:
-            "Used for writing robust JavaScript code in web, mobile, and backend applications, ensuring fewer runtime errors.",
+            "TypeScript adds static typing to JavaScript for reliable code.",
+          history: "Developed by Microsoft in 2012.",
+          usage: "Used for robust JS code in web and mobile apps.",
           keyFeatures: [
-            "Static Typing: Defines variable types for early error detection.",
-            "Interfaces: Structures complex objects with reusable contracts.",
-            "Generics: Enables type-safe reusable code components.",
-            "Advanced Tooling: Superior IDE support with autocompletion and refactoring.",
+            "Static Typing",
+            "Interfaces",
+            "Generics",
+            "Advanced Tooling",
           ],
           experience: "Advanced",
           color: "from-blue-500 to-blue-700",
@@ -250,16 +226,14 @@ const SkillsPage = () => {
           name: "Git & GitHub",
           icon: "🐙",
           description:
-            "Git is a distributed version control system, and GitHub is a platform for hosting Git repositories, together enabling collaborative coding, version tracking, and continuous integration workflows.",
-          history:
-            "Git was created by Linus Torvalds in 2005 for Linux development; GitHub launched in 2008, revolutionizing open-source collaboration.",
-          usage:
-            "Used for source code management, team collaboration, and automating deployment pipelines in software projects of all sizes.",
+            "Git and GitHub enable version control and collaboration.",
+          history: "Git by Linus Torvalds in 2005; GitHub launched in 2008.",
+          usage: "Used for source code management and CI/CD.",
           keyFeatures: [
-            "Distributed VCS: Each developer has a full repository copy.",
-            "Branching Model: Supports parallel development workflows.",
-            "Pull Requests: Facilitates code reviews and merges.",
-            "GitHub Actions: Automates CI/CD directly in the platform.",
+            "Distributed VCS",
+            "Branching",
+            "Pull Requests",
+            "GitHub Actions",
           ],
           experience: "Advanced",
           color: "from-gray-600 to-gray-800",
@@ -268,16 +242,14 @@ const SkillsPage = () => {
           name: "Figma",
           icon: "🎨",
           description:
-            "Figma is a cloud-based design and prototyping tool that enables real-time collaboration for creating user interfaces, prototypes, and design systems, bridging the gap between designers and developers.",
-          history:
-            "Launched in 2016 by Dylan Field and Evan Wallace, Figma became a leader in collaborative design with its browser-based approach.",
-          usage:
-            "Used for UI/UX design, prototyping, and creating design systems for web and mobile applications, with seamless handoff to developers.",
+            "Figma is a cloud-based tool for UI/UX design and prototyping.",
+          history: "Launched in 2016 by Dylan Field and Evan Wallace.",
+          usage: "Used for designing and prototyping web/mobile UIs.",
           keyFeatures: [
-            "Vector Editing: Precise control over design elements.",
-            "Real-time Collaboration: Multiple users edit simultaneously.",
-            "Prototyping: Interactive mockups with transitions.",
-            "Dev Mode: Exports CSS and assets for developers.",
+            "Vector Editing",
+            "Collaboration",
+            "Prototyping",
+            "Dev Mode",
           ],
           experience: "Advanced",
           color: "from-purple-400 to-pink-400",
@@ -286,107 +258,93 @@ const SkillsPage = () => {
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-white text-gray-900 py-16 px-4 relative overflow-hidden pt-32">
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-purple-300/30 rounded-full"
-            style={{
-              width: Math.random() * 6 + 3,
-              height: Math.random() * 6 + 3,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 0.6, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 1.5,
-            }}
-          />
-        ))}
-      </div>
+  // Hover animation variants for cards
+  const cardVariants = {
+    initial: { scale: 1, y: 0, boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" },
+    hover: {
+      scale: 1.03,
+      y: -8,
+      boxShadow: "0px 12px 20px rgba(147, 51, 234, 0.3)",
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    tap: { scale: 0.98, transition: { duration: 0.2, ease: "easeInOut" } },
+  };
 
+  return (
+    <div className="min-h-screen text-gray-100 py-16 px-4 pt-32  ">
       {/* Header */}
-      <div className="max-w-6xl mx-auto text-center mb-12 md:mb-16 relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-          className="text-4xl md:text-6xl font-extrabold mb-4 relative"
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-400">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="max-w-6xl mx-auto text-center mb-12"
+      >
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 relative">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
             My Skills
           </span>
           <motion.span
-            className="absolute -top-4 -right-4 text-purple-400"
+            className="absolute -top-4 right-0 text-purple-400"
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           >
-            <Sparkles size={32} />
+            <Sparkles size={24} />
           </motion.span>
-        </motion.h1>
-        <p className="text-lg md:text-xl text-gray-600">
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300">
           A showcase of my{" "}
-          <span className="text-purple-500 font-semibold">
+          <span className="text-purple-400 font-semibold">
             technical toolkit
           </span>
         </p>
-      </div>
+      </motion.div>
 
       {/* Categories and Skills */}
-      <div className="max-w-6xl mx-auto space-y-12 md:space-y-16 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-12">
         {skillCategories.map((category, categoryIndex) => (
           <motion.div
             key={category.name}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: categoryIndex * 0.1, type: "spring" }}
-            className="px-2 md:px-0"
           >
-            <div className="flex items-center gap-3 mb-6 md:mb-8">
-              <motion.div
-                className="p-2 rounded-lg bg-purple-100 text-purple-500"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-purple-400/20 text-purple-400">
                 {category.icon}
-              </motion.div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+              </div>
+              <h2 className="text-2xl font-semibold text-gray-100">
                 {category.name}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {category.skills.map((skill, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.skills.map((skill) => (
                 <motion.div
                   key={skill.name}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-md hover:shadow-purple-300/30 transition-all cursor-pointer border border-purple-200`}
+                  variants={cardVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="relative bg-white/10 backdrop-blur-md p-6 rounded-xl border border-purple-300/30 overflow-hidden cursor-pointer"
                   onClick={() => setSelectedSkill(skill)}
                 >
+                  {/* Subtle gradient overlay on hover */}
                   <motion.div
-                    className="text-3xl md:text-4xl mb-3"
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    {skill.icon}
-                  </motion.div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                    {skill.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm line-clamp-2">
-                    {skill.description}
-                  </p>
+                    className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  />
+                  <div className="relative z-10">
+                    <div className="text-4xl mb-3">{skill.icon}</div>
+                    <h3 className="text-xl font-semibold text-gray-100 mb-2">
+                      {skill.name}
+                    </h3>
+                    <p className="text-gray-300 text-sm line-clamp-2">
+                      {skill.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -402,85 +360,70 @@ const SkillsPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setSelectedSkill(null)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
             />
-
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 20 }}
-              className="fixed bottom-0 left-0 right-0 h-[90%] md:h-[80%] bg-white/90 backdrop-blur-md p-4 md:p-8 z-50 rounded-t-3xl shadow-lg overflow-y-auto"
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="fixed bottom-0 left-0 right-0 h-[85%] bg-gray-800/90 backdrop-blur-md p-6 z-50 rounded-t-3xl shadow-xl overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedSkill(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-purple-100 text-purple-500 hover:bg-purple-200 transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-full bg-purple-400/20 text-purple-400 hover:bg-purple-400/30 transition-colors duration-300"
               >
                 <X size={24} />
               </button>
 
-              <div className="mt-12 md:mt-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <motion.div
-                    className="text-5xl md:text-6xl"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    {selectedSkill.icon}
-                  </motion.div>
+              <div className="mt-12">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="text-5xl">{selectedSkill.icon}</div>
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+                    <h2 className="text-3xl font-bold text-gray-100">
                       {selectedSkill.name}
                     </h2>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                      <span className="text-yellow-500 font-medium">
+                    <div className="flex items-center gap-2 mt-1">
+                      <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      <span className="text-yellow-400 font-medium">
                         {selectedSkill.experience}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6 text-gray-200">
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       Description
                     </h3>
-                    <p className="text-gray-700 text-lg">
-                      {selectedSkill.description}
-                    </p>
+                    <p className="text-base">{selectedSkill.description}</p>
                   </div>
-
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       History
                     </h3>
-                    <p className="text-gray-700 text-lg">
-                      {selectedSkill.history}
-                    </p>
+                    <p className="text-base">{selectedSkill.history}</p>
                   </div>
-
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       Usage
                     </h3>
-                    <p className="text-gray-700 text-lg">
-                      {selectedSkill.usage}
-                    </p>
+                    <p className="text-base">{selectedSkill.usage}</p>
                   </div>
-
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       Key Features
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {selectedSkill.keyFeatures.map((feature) => (
                         <motion.span
                           key={feature}
-                          className={`px-4 py-2 rounded-full bg-gradient-to-r ${selectedSkill.color} text-white text-sm font-medium`}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring" }}
+                          className={`px-3 py-1 rounded-full bg-gradient-to-r ${selectedSkill.color} text-white text-sm`}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring", stiffness: 300 }}
                         >
                           {feature}
                         </motion.span>

@@ -84,7 +84,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center text-gray-900 pt-14 overflow-hidden relative">
+    <div className="min-h-screen flex items-center justify-center text-gray-900 pt-14 overflow-hidden relative">
       {/* Particle effect */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((id, i) => (
@@ -93,14 +93,14 @@ const Page = () => {
       </div>
 
       {/* Dynamic Background Glow */}
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-pink-100/20 to-white"
         animate={{
           scale: [1, 1.05, 1],
           opacity: [0.5, 0.7, 0.5],
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+      /> */}
 
       {/* Main content */}
       <div className="container mx-auto px-4 py-8 md:py-16 text-center relative z-10">
@@ -150,7 +150,7 @@ const Page = () => {
           </motion.div>
 
           {/* Animated Name with Letter Effects */}
-          <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 tracking-tight relative">
+          <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 text-white tracking-tight relative">
             {"MANOJ KUMAR".split("").map((letter, i) => (
               <motion.span
                 key={i}
@@ -248,3 +248,4 @@ const Page = () => {
 };
 
 export default Page;
+

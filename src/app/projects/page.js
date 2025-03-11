@@ -8,127 +8,133 @@ const ProjectsPage = () => {
 
   const projects = [
     {
-      name: "E-Commerce Platform",
-      icon: "🛒",
-      description: "A full-stack e-commerce solution with modern tech.",
+      name: "ChitChat v2",
+      icon: "💬",
+      description:
+        "A real-time chat application with one-on-one and group messaging capabilities.",
       experience: "Advanced",
       features: [
-        "User Authentication",
-        "Product Search",
-        "Shopping Cart",
-        "Payment Integration",
+        "Real-time One-on-One & Group Chats",
+        "Smoother Message Updates",
+        "Light & Dark Mode",
+        "Improved UI & Responsiveness",
+        "Creative Animations",
+        "Online/Offline Status",
       ],
-      color: "from-blue-400 to-cyan-400",
-    },
-    {
-      name: "Social Media App",
-      icon: "📱",
-      description: "A real-time social app with mobile-first design.",
-      experience: "Advanced",
-      features: [
-        "Live Chat",
-        "Image Sharing",
-        "Notifications",
-        "User Profiles",
+      techStack: [
+        "Frontend: React.js, React Icons, Framer Motion",
+        "Backend: Node.js, Express.js",
+        "Database: MongoDB",
+        "Real-Time Communication: Socket.IO",
+        "Image Storage: Cloudinary",
+        "Deployment: Vercel (Frontend), Render (Backend)",
       ],
+      liveLink: "https://chit-chat-nine-pi.vercel.app",
+      githubFrontend: "https://github.com/manojmksmanu/ChitChatNewfrontend",
+      githubBackend: "https://github.com/manojmksmanu/chitChatNewBackend",
+      image: "/Images/chitchat.png", // Dummy image path
       color: "from-purple-400 to-pink-400",
     },
     {
-      name: "Portfolio Website",
-      icon: "🌐",
-      description: "A showcase of my skills and creativity.",
-      experience: "Intermediate",
+      name: "MovieMania",
+      icon: "🎬",
+      description:
+        "A responsive movie and show searching website powered by the TMDB API.",
+      experience: "Advanced",
       features: [
+        "Search Movies & Shows",
         "Responsive Design",
-        "Project Gallery",
-        "Blog Section",
-        "Contact Form",
+        "User-Friendly Interface",
+        "Detailed Movie Information",
       ],
-      color: "from-green-400 to-emerald-400",
+      techStack: [
+        "Frontend: React.js",
+        "API: TMDB API",
+        "Styling: CSS",
+        "Deployment: Vercel",
+      ],
+      liveLink: "https://movie-mania-beta-woad.vercel.app",
+      github: "https://github.com/manojmksmanu/MovieMania",
+      image: "/Images/moviemania.png", // Dummy image path
+      color: "from-blue-400 to-cyan-400",
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-white text-gray-900 pt-32 px-4 relative overflow-hidden">
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 15 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-purple-300/30 rounded-full"
-            style={{
-              width: Math.random() * 6 + 3,
-              height: Math.random() * 6 + 3,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 0.6, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 1.5,
-            }}
-          />
-        ))}
-      </div>
+  // Hover animation variants for cards
+  const cardVariants = {
+    initial: { scale: 1, y: 0, boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" },
+    hover: {
+      scale: 1.03,
+      y: -8,
+      boxShadow: "0px 12px 20px rgba(147, 51, 234, 0.3)",
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    tap: { scale: 0.98, transition: { duration: 0.2, ease: "easeInOut" } },
+  };
 
+  return (
+    <div className="min-h-screen text-gray-100 pt-32 px-4">
       {/* Header */}
-      <div className="max-w-6xl mx-auto text-center mb-12 md:mb-16 relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-          className="text-4xl md:text-6xl font-extrabold mb-4 relative"
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-400">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="max-w-6xl mx-auto text-center mb-12"
+      >
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 relative">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
             My Projects
           </span>
           <motion.span
-            className="absolute -top-4 -right-4 text-purple-400"
+            className="absolute -top-4 right-0 text-purple-400"
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           >
-            <Sparkles size={32} />
+            <Sparkles size={24} />
           </motion.span>
-        </motion.h1>
-        <p className="text-lg md:text-xl text-gray-600">
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300">
           A gallery of my{" "}
-          <span className="text-purple-500 font-semibold">creative works</span>
+          <span className="text-purple-400 font-semibold">creative works</span>
         </p>
-      </div>
+      </motion.div>
 
       {/* Projects */}
-      <div className="max-w-6xl mx-auto space-y-12 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {projects.map((project, index) => (
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
             <motion.div
               key={project.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: "spring" }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className={`bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-md hover:shadow-purple-300/30 transition-all cursor-pointer border border-purple-200`}
+              variants={cardVariants}
+              initial="initial"
+              whileHover="hover"
+              whileTap="tap"
+              className="relative bg-white/10 backdrop-blur-md p-6 rounded-xl border border-purple-300/30 overflow-hidden cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
               <motion.div
-                className="text-3xl md:text-4xl mb-3"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                {project.icon}
-              </motion.div>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
-                {project.name}
-              </h3>
-              <p className="text-gray-600 text-sm line-clamp-2">
-                {project.description}
-              </p>
+                className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+              <div className="relative z-10">
+                {/* Project Image */}
+                <div className="mb-4">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} preview`}
+                    className="w-full h-40 object-cover rounded-lg border border-gray-700/50"
+                  />
+                </div>
+                <div className="text-4xl mb-3">{project.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-100 mb-2">
+                  {project.name}
+                </h3>
+                <p className="text-gray-300 text-sm line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -142,72 +148,142 @@ const ProjectsPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setSelectedProject(null)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
             />
 
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 20 }}
-              className="fixed bottom-0 left-0 right-0 h-[90%] md:h-[80%] bg-white/90 backdrop-blur-md p-4 md:p-8 z-50 rounded-t-3xl shadow-lg overflow-y-auto"
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="fixed bottom-0 left-0 right-0 h-[85%] bg-gray-800/90 backdrop-blur-md p-6 z-50 rounded-t-3xl shadow-xl overflow-y-auto custom-scrollbar"
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-purple-100 text-purple-500 hover:bg-purple-200 transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-full bg-purple-400/20 text-purple-400 hover:bg-purple-400/30 transition-colors duration-300"
               >
                 <X size={24} />
               </button>
 
-              <div className="mt-12 md:mt-8">
-                <div className="flex items-center gap-4 mb-8">
-                  <motion.div
-                    className="text-5xl md:text-6xl"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    {selectedProject.icon}
-                  </motion.div>
+              <div className="mt-12">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="text-5xl">{selectedProject.icon}</div>
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+                    <h2 className="text-3xl font-bold text-gray-100">
                       {selectedProject.name}
                     </h2>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                      <span className="text-yellow-500 font-medium">
+                    <div className="flex items-center gap-2 mt-1">
+                      <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      <span className="text-yellow-400 font-medium">
                         {selectedProject.experience}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6 text-gray-200">
+                  {/* Project Image */}
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
-                      About
-                    </h3>
-                    <p className="text-gray-700 text-lg">
-                      {selectedProject.description}
+                    <img
+                      src={selectedProject.image}
+                      alt={`${selectedProject.name} screenshot`}
+                      className="w-full max-w-[600px] max-h-[400px] object-contain rounded-lg border border-gray-700/50 mx-auto"
+                    />
+                    <p className="text-xs text-gray-400 mt-2 text-center">
+                      (Placeholder image - replace with actual screenshot)
                     </p>
                   </div>
 
+                  {/* About */}
                   <div>
-                    <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+                      About
+                    </h3>
+                    <p className="text-base">{selectedProject.description}</p>
+                  </div>
+
+                  {/* Links */}
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+                      Links
+                    </h3>
+                    <div className="space-y-2">
+                      {selectedProject.liveLink && (
+                        <a
+                          href={selectedProject.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink size={18} /> Live Demo
+                        </a>
+                      )}
+                      {selectedProject.githubFrontend && (
+                        <a
+                          href={selectedProject.githubFrontend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink size={18} /> GitHub Frontend
+                        </a>
+                      )}
+                      {selectedProject.githubBackend && (
+                        <a
+                          href={selectedProject.githubBackend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink size={18} /> GitHub Backend
+                        </a>
+                      )}
+                      {selectedProject.github && (
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink size={18} /> GitHub Repository
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       Features
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                      {selectedProject.features.map((item) => (
+                      {selectedProject.features.map((feature) => (
                         <motion.span
-                          key={item}
-                          className={`px-4 py-2 rounded-full bg-gradient-to-r ${selectedProject.color} text-white text-sm font-medium`}
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring" }}
+                          key={feature}
+                          className={`px-3 py-1 rounded-full bg-gradient-to-r ${selectedProject.color} text-white text-sm`}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring", stiffness: 300 }}
                         >
-                          {item}
+                          {feature}
                         </motion.span>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+                      Tech Stack
+                    </h3>
+                    <ul className="space-y-2 text-base">
+                      {selectedProject.techStack.map((tech) => (
+                        <li key={tech} className="flex items-center gap-2">
+                          <span className="text-purple-400">•</span> {tech}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
