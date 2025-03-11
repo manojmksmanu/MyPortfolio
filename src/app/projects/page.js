@@ -191,9 +191,7 @@ const ProjectsPage = () => {
                       alt={`${selectedProject.name} screenshot`}
                       className="w-full max-w-[600px] max-h-[400px] object-contain rounded-lg border border-gray-700/50 mx-auto"
                     />
-                    <p className="text-xs text-gray-400 mt-2 text-center">
-                      (Placeholder image - replace with actual screenshot)
-                    </p>
+                
                   </div>
 
                   {/* About */}
