@@ -8,6 +8,34 @@ const ProjectsPage = () => {
 
   const projects = [
     {
+      name: "MovieManiaApp",
+      icon: "📱",
+      description:
+        "A mobile app for exploring movies, featuring detailed info, trailers, and personalized shortlisting, built with React Native.",
+      experience: "Advanced",
+      features: [
+        "Browse Movies & Details",
+        "Watch Trailers",
+        "Shortlist Favorites",
+        "Responsive Mobile UI",
+        "Smooth Animations",
+        "Cross-Platform Support",
+      ],
+      techStack: [
+        "Frontend: React Native, Expo",
+        "API: TMDB API",
+        "State Management: Redux",
+        "Styling: StyleSheet",
+        "Animations: Lottie, Framer Motion",
+        "Deployment: Google Drive (APK)",
+      ],
+      DownloadApp:
+        "https://drive.google.com/file/d/1afGFhK9xw6c2dc9NnZZgAqygHjMROkyA/view?usp=sharing",
+      github: "https://github.com/manojmksmanu/Movie_app.git",
+      image: "/Images/MovieManiaApp.png",
+      color: "from-purple-400 to-pink-400",
+    },
+    {
       name: "ChitChat v2",
       icon: "💬",
       description:
@@ -32,7 +60,7 @@ const ProjectsPage = () => {
       liveLink: "https://chit-chat-nine-pi.vercel.app",
       githubFrontend: "https://github.com/manojmksmanu/ChitChatNewfrontend",
       githubBackend: "https://github.com/manojmksmanu/chitChatNewBackend",
-      image: "/Images/chitchat.png", // Dummy image path
+      image: "/Images/chitchat.png",
       color: "from-purple-400 to-pink-400",
     },
     {
@@ -55,7 +83,7 @@ const ProjectsPage = () => {
       ],
       liveLink: "https://movie-mania-beta-woad.vercel.app",
       github: "https://github.com/manojmksmanu/MovieMania",
-      image: "/Images/moviemania.png", // Dummy image path
+      image: "/Images/moviemania.png",
       color: "from-blue-400 to-cyan-400",
     },
   ];
@@ -191,7 +219,6 @@ const ProjectsPage = () => {
                       alt={`${selectedProject.name} screenshot`}
                       className="w-full max-w-[600px] max-h-[400px] object-contain rounded-lg border border-gray-700/50 mx-auto"
                     />
-                
                   </div>
 
                   {/* About */}
@@ -248,6 +275,16 @@ const ProjectsPage = () => {
                           <ExternalLink size={18} /> GitHub Repository
                         </a>
                       )}
+                      {selectedProject.DownloadApp && (
+                        <a
+                          href={selectedProject.DownloadApp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <ExternalLink size={18} /> Download App
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -256,18 +293,13 @@ const ProjectsPage = () => {
                     <h3 className="text-sm uppercase tracking-wide text-gray-400 mb-2">
                       Features
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <ul className="space-y-2 text-base">
                       {selectedProject.features.map((feature) => (
-                        <motion.span
-                          key={feature}
-                          className={`px-3 py-1 rounded-full bg-gradient-to-r ${selectedProject.color} text-white text-sm`}
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                        >
-                          {feature}
-                        </motion.span>
+                        <li key={feature} className="flex items-center gap-2">
+                          <span className="text-purple-400">•</span> {feature}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
 
                   {/* Tech Stack */}
