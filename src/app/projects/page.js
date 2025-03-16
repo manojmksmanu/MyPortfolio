@@ -282,7 +282,7 @@ const ProjectsPage = () => {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
                         >
-                          <ExternalLink size={18} /> Download App
+                          <ExternalLink size={18} /> Download Android App
                         </a>
                       )}
                     </div>
